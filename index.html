@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Jess Boyd — Project Coordinator | People-Centered Systems | Design Thinking</title>
+<meta name="description" content="Jess Boyd: project coordinator with a design and photography background, studying product innovation at the University of Arkansas.">
+<script>
+(function () {
+  var d = document.documentElement; d.classList.add('js');
+  var seen = false, rm = false, force = /[?&#]intro/.test(location.search + location.hash);
+  try { seen = !!localStorage.getItem('jb_intro_seen_v6'); } catch (e) {}
+  try { rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  if ((!seen || force) && !rm) d.classList.add('intro-on');
+})();
+</script>
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Nothing+You+Could+Do&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- Styles: one file per section, plus shared base/effects/dog. Order matters (base first). -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/effects.css">
+<link rel="stylesheet" href="css/dog.css">
+<link rel="stylesheet" href="css/opening.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/about.css">
+<link rel="stylesheet" href="css/common-thread.css">
+<link rel="stylesheet" href="css/story.css">
+<link rel="stylesheet" href="css/experience.css">
+<link rel="stylesheet" href="css/education.css">
+<link rel="stylesheet" href="css/connect.css">
+</head>
+<body>
+<a class="skiplink" href="#main">Skip to main content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2"/></filter></svg>
+
+<!-- OPENING SEQUENCE (dog + signature) — css/opening.css · js/opening.js -->
+<div id="intro" aria-hidden="true">
+  <div class="stage" id="stage">
+    <div class="dogstack" id="introDog">
+      <img data-a="base" alt=""><img data-a="tail" class="tail" alt=""><img data-a="marks" class="marks" alt="">
+      <img data-a="pencil" class="dogpen" id="dogPen" alt="">
+    </div>
+    <canvas id="sigc"></canvas>
+  </div>
+</div>
+<img class="penfx fixed" id="fxPen" data-a="pencil" alt="" aria-hidden="true" style="display:none">
+<button class="skip-intro" id="skipIntro" type="button">skip intro</button>
+
+<!-- HEADER + NAV — css/header.css · js/header.js -->
+<header class="site-header on-hero" id="hdr">
+  <div class="wrap hin">
+    <a class="logo" href="#top" aria-label="Jess Boyd, back to top"><img data-a="sig" alt="Jess Boyd"></a>
+    <nav class="nav" aria-label="Primary" id="nav">
+      <a class="ulh" href="#about">About</a>
+      <a class="ulh" href="#story">Story</a>
+      <a class="ulh" href="#experience">Experience</a>
+      <a class="ulh" href="#education">Education</a>
+      <a class="ulh" href="#connect">Connect</a>
+    </nav>
+    <button class="menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Mobile">
+  <a href="#about">About</a><a href="#story">Story</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#connect">Connect</a>
+</nav>
+
+<main id="main">
+  <!-- ==================================================
+       1.  HERO
+       css/hero.css · js/hero.js
+       ================================================== -->
+  <section class="hero" id="top" aria-label="Introduction">
+    <div class="hero-inner">
+      <h1 class="hi rise" style="--d:0"><span class="l l1">Hi, I’m</span> <span class="l l2">Jess Boyd<svg class="squig" viewBox="0 0 400 46" preserveAspectRatio="none" aria-hidden="true"><path d="M4 31 C 34 27, 70 27, 110 23 S 190 19, 236 15 S 330 10, 391 7 C 396 7, 399 10, 394 13 C 336 19, 282 23, 226 27 S 120 34, 70 35 C 40 36, 14 37, 4 31 Z"/><path d="M52 41 C 92 39, 132 38, 180 35 C 183 36, 181 38, 177 39 C 132 42, 92 43, 52 43 C 47 43, 47 41, 52 41 Z"/></svg></span></h1>
+      <p class="sub rise" style="--d:2">Where I’ve been, who I’m becoming &amp; the life I’m designing.</p>
+      <ul class="descr rise" style="--d:3"><li>Project Coordinator</li><li>Product Innovation Student</li><li>Creative at Heart</li></ul>
+    </div>
+    <div class="keep" aria-hidden="true"><span class="script" data-draw>keep scrolling</span><span class="arrow" data-arrow="down"></span></div>
+    <div class="peek" aria-hidden="true"><div class="peekin" id="peekIn">
+      <img data-a="ptail" class="ptail" alt=""><img data-a="pbase" alt=""><img data-a="ppencil" alt=""><img data-a="pmarks" class="pmarks" alt="">
+    </div></div>
+  </section>
+
+  <!-- ==================================================
+       2.  ABOUT — A Little About Me
+       css/about.css · js/about.js
+       ================================================== -->
+  <section class="spread about" id="about" aria-labelledby="about-h">
+    <div class="wrap agrid">
+      <h2 class="display reveal" id="about-h">A Little<br>About Me</h2>
+      <div class="atext reveal" style="--d:1">
+        <p>I’ve built my work around helping ideas take shape—supporting projects and programs from early planning through execution, while paying close attention to how they’re experienced along the way. My background is in design, visual communication, and project coordination, with experience across academic, nonprofit, and professional settings. I bring a <span class="hl" data-draw>calm, steady approach</span> to moving pieces, holding timelines, communication, and details.</p>
+      </div>
+      <aside class="aside" aria-label="Quick facts and photos">
+        <dl class="facts reveal" style="--d:2">
+          <div><dt>Home</dt><dd>Louisiana roots → Northwest Arkansas</dd></div>
+          <div><dt>Creative at heart</dt><dd>design • photography • making things</dd></div>
+          <div><dt>Right now</dt><dd>Project Coordinator, Milestone Leadership<br>M.S. in Product Innovation, University of Arkansas</dd></div>
+        </dl>
+        <div class="cluster reveal" id="cluster" style="--d:3">
+          <figure class="pol canoe"><img data-a="canoe" alt="Jess smiling from a canoe on a green river beneath a bluff"><figcaption>always up for<br>an adventure</figcaption></figure>
+          <figure class="pol dogs"><img data-a="dogs" alt="Two golden retrievers resting in a doorway"><figcaption>Obi + Penny ♡</figcaption></figure>
+          <figure class="pol sun"><img data-a="sun" alt="Close-up of Jess smiling in sunglasses by the water"><figcaption>probably somewhere<br>sunny :)</figcaption></figure>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       3.  THE COMMON THREAD (pull-quote)
+       css/common-thread.css · js/common-thread.js
+       ================================================== -->
+  <section class="tq" aria-label="The common thread">
+    <div class="wrap"><div class="tq-in">
+      <h2 class="reveal">The common thread?</h2>
+      <p class="reveal" style="--d:1">I love taking an idea and turning it into something that makes an experience <span class="mk" id="ulMk">better for someone<svg class="mark" viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 8 C 24 3, 44 12, 66 7 S 100 4, 118 8"/><path pathLength="1" style="--i:1" d="M8 11.5 C 40 8, 76 12.5, 112 9.5"/></svg></span>.</p>
+      <div class="look" aria-hidden="true"><span class="script" data-draw>look here</span><span class="arrow" data-arrow="right"></span></div>
+    </div></div>
+  </section>
+
+  <!-- ==================================================
+       4.  STORY — How I Got Here
+       css/story.css · no script
+       ================================================== -->
+  <section class="spread story" id="story" aria-labelledby="story-h">
+    <div class="wrap">
+      <h2 class="display reveal" id="story-h">How I Got Here</h2>
+      <div class="stages">
+        <div class="stg s1 reveal">
+          <svg class="star" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6 L36 22 L54 24 L40 35 L45 52 L30 43 L15 52 L20 35 L6 24 L24 22 Z"/></svg>
+          <div><h3>Graphic Designer + Marketer + Photographer</h3><p>Agency Designer + Photographer</p></div>
+        </div>
+        <span class="arrow dir" data-arrow="right" aria-hidden="true"></span>
+        <div class="stg s2 reveal" style="--d:1">
+          <svg class="star" viewBox="0 0 60 60" aria-hidden="true"><path d="M31 5 L35 23 L55 25 L39 36 L46 53 L29 42 L13 52 L21 35 L5 23 L25 22 Z"/></svg>
+          <div><h3>Leadership Development + Project Coordination</h3><p>Program Designer + Planner + Coordinator</p></div>
+        </div>
+        <span class="arrow dir" data-arrow="right" aria-hidden="true"></span>
+        <div class="stg s3 reveal" style="--d:2">
+          <svg class="star" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 7 L37 21 L53 26 L41 38 L44 54 L29 44 L15 53 L19 36 L6 25 L23 23 Z"/></svg>
+          <div><h3>Product Innovation</h3><p>Bringing the pieces together</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       5.  EXPERIENCE (folders are built by the script)
+       css/experience.css · js/experience.js · text lives in js/data/experience.js
+       ================================================== -->
+  <section class="spread exp" id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <p class="label reveal">Relevant Work Experience</p>
+      <h2 class="display reveal" id="exp-h" style="--d:1">Experience</h2>
+      <div class="drawer reveal" id="drawer" style="--d:2"></div>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       6a.  EDUCATION
+       css/education.css · no script
+       ================================================== -->
+  <section class="spread" id="education" aria-label="Education" style="padding-bottom:0">
+    <div class="wrap edu-wrap">
+      <div class="edu reveal">
+        <h2>Education</h2>
+        <div class="deg">
+          <h3>M.S. in Product Innovation</h3>
+          <p>University of Arkansas, Walton College</p>
+          <p class="mono">Started 2026 · Currently enrolled</p>
+        </div>
+        <div class="deg">
+          <h3>B.F.A. in Graphic Design</h3>
+          <span class="hon">Summa Cum Laude</span>
+          <p>University of Louisiana at Lafayette</p>
+          <p class="mono">May 2019, GPA 3.94</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       6b.  SKILLS
+       css/education.css · no script
+       ================================================== -->
+  <section class="spread skills-spread" id="skills" aria-labelledby="skills-h">
+    <div class="wrap">
+      <h2 id="skills-h" class="reveal">Skills</h2>
+      <div class="skills reveal" style="--d:1">
+        <div><h3>Systems &amp; Project Coordination</h3><ul><li>Planning, logistics &amp; implementation</li><li>Participant &amp; stakeholder communication</li><li>Documentation &amp; follow-through</li><li>Data tracking &amp; program support</li></ul></div>
+        <div><h3>Design &amp; Implementation</h3><ul><li>Visual communication and layout</li><li>Turning ideas into usable outcomes</li><li>Balancing creativity with practicality</li><li>Detail and consistency across work</li></ul></div>
+        <div><h3>Communication &amp; Workflow</h3><ul><li>Proactive communication around timelines, expectations, and needs</li><li>Clear internal and external communication</li><li>Cross-functional coordination</li><li>Simplifying complex information</li><li>Flexible, self-directed workflow with strong time management</li></ul></div>
+        <div><h3>Visual Communication &amp; Tools</h3><ul><li>Adobe Creative Suite, Canva</li><li>Microsoft Office</li><li>Google Workspace</li><li>File organization &amp; asset management</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       7.  CONNECT (email, LinkedIn, footer)
+       css/connect.css · js/connect.js
+       ================================================== -->
+  <section class="connect" id="connect" aria-labelledby="connect-h">
+    <div class="wrap">
+      <h2 class="ch reveal" id="connect-h"><span>Let’s</span><span>connect.</span></h2>
+      <p class="cline reveal" style="--d:1">Say hello by email or find me on LinkedIn.</p>
+      <div class="links reveal" style="--d:2">
+        <a class="clink" href="mailto:connect.jessboyd@gmail.com">Email me <span class="ar" aria-hidden="true">↗</span></a>
+        <a class="clink" href="https://www.linkedin.com/in/jessica-b-238604137/" target="_blank" rel="noopener noreferrer">LinkedIn <span class="ar" aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a>
+      </div>
+      <p class="addr mono reveal" style="--d:3">connect.jessboyd@gmail.com</p>
+      <div class="cdog"><div class="dogstack" id="connectDog" role="img" aria-label="Hand-drawn golden retriever"><img data-a="base" alt=""><img data-a="tail" class="tail" alt=""><img data-a="marks" class="marks" alt=""></div><img class="floorpen" data-a="pencil" alt="" aria-hidden="true"></div>
+      <div class="sitefoot">
+        <img data-a="sig" alt="Jess Boyd">
+        <span class="mono">Project Coordinator | People-Centered Systems | Design Thinking</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Scripts: data first, then core, then one file per section. Order matters. Plain scripts (no build step). -->
+<script src="js/data/images.js"></script>
+<script src="js/data/signature-path.js"></script>
+<script src="js/data/pencil.js"></script>
+<script src="js/data/experience.js"></script>
+<script src="js/core.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/header.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/about.js"></script>
+<script src="js/common-thread.js"></script>
+<script src="js/experience.js"></script>
+<script src="js/connect.js"></script>
+<script src="js/opening.js"></script>
+<script src="js/init.js"></script>
+</body>
+</html>

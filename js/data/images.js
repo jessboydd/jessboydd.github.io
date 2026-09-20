@@ -1,0 +1,3 @@
+/* Image file paths used by the scripts. Swap a file in assets/img/ (same name) or change a path here. */
+window.JB = window.JB || {};
+JB.IMG = { sig: "assets/img/signature-logo.png", base: "assets/img/dog-base.png", tail: "assets/img/dog-tail.png", marks: "assets/img/dog-marks.png", pencil: "assets/img/pencil.png", pbase: "assets/img/dog-peek-base.png", ppencil: "assets/img/dog-peek-pencil.png", ptail: "assets/img/dog-peek-tail.png", pmarks: "assets/img/dog-peek-marks.png", dogs: "assets/img/photo-dogs.jpg", sun: "assets/img/photo-sunglasses.jpg", canoe: "assets/img/photo-canoe.jpg" }

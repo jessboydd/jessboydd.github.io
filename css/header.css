@@ -1,0 +1,22 @@
+/* ==========================================================
+   HEADER + NAVIGATION
+   Fixed header, desktop nav, mobile menu. Script: js/header.js
+   ========================================================== */
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 80; padding-top: env(safe-area-inset-top, 0px); transition: background .3s, box-shadow .3s; }
+.site-header.solid { background: color-mix(in srgb, var(--cream) 94%, transparent); backdrop-filter: blur(8px); box-shadow: 0 1px 0 rgba(30,22,54,.16); }
+.hin { display: flex; align-items: center; justify-content: space-between; height: 4.5rem; gap: 1rem; }
+.logo { display: block; line-height: 0; }
+.logo img { height: 50px; width: auto; transition: filter .3s; }
+.nav { display: flex; gap: 1.6rem; align-items: center; }
+.nav a { font-weight: 600; font-size: .95rem; }
+.menubtn { display: none; background: none; border: 2px solid var(--ink); padding: .5rem 1rem; font-weight: 700; font-size: .9rem; cursor: pointer; }
+.site-header.on-hero:not(.solid) .logo img { filter: invert(1); }
+.site-header.on-hero:not(.solid) .nav a, .site-header.on-hero:not(.solid) .menubtn { color: #fff; border-color: #fff; }
+.menu { position: fixed; inset: 0; z-index: 70; background: var(--cream); padding: 6rem 1.5rem 2rem; display: none; flex-direction: column; gap: .4rem; }
+.menu.open { display: flex; }
+.menu a { font-family: var(--serif); font-size: 2.6rem; line-height: 1.25; text-decoration: none; }
+
+@media (max-width: 760px) {
+  .nav { display: none; }
+  .menubtn { display: block; }
+}

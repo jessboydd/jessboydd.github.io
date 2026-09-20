@@ -1,0 +1,29 @@
+/* ==========================================================
+   6. EDUCATION + SKILLS
+   Periwinkle education panel, then quiet four-column skills. Sections: #education, #skills   (no script)
+   ========================================================== */
+.edu-wrap { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 1.5rem; }
+.edu { grid-column: 1 / span 7; background: var(--peri); color: #fff; padding: clamp(1.8rem, 4vw, 3.4rem); box-shadow: 12px 12px 0 var(--lav); }
+.edu h2 { margin: 0 0 1.8rem; font-family: var(--serif); font-weight: 400; font-size: clamp(2.8rem, 5.5vw, 4.8rem); line-height: .9; letter-spacing: -.03em; color: var(--lav); }
+.edu .deg + .deg { margin-top: 2rem; padding-top: 1.8rem; border-top: 1px solid rgba(255,255,255,.35); }
+.edu .deg h3 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(1.9rem, 3.2vw, 2.6rem); line-height: 1.05; letter-spacing: -.015em; }
+.edu .deg .hon { display: block; margin-top: .3rem; font-family: var(--serif); font-style: italic; font-size: 1.5rem; color: #fff; }
+.edu .deg p { margin: .5rem 0 0; }
+.edu .deg .mono { color: #E9EAFB; }
+.skills-spread { padding-top: clamp(2rem, 5vw, 4rem); }
+.skills-spread h2 { margin: 0 0 clamp(2rem, 4vw, 3.4rem); font-family: var(--serif); font-weight: 400; font-size: clamp(2.8rem, 5.5vw, 4.8rem); line-height: .9; letter-spacing: -.03em; color: var(--peri); }
+.skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4rem clamp(1.4rem, 3vw, 3rem); }
+.skills h3 { margin: 0 0 .9rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.55rem; line-height: 1.1; letter-spacing: -.01em; color: var(--violet); }
+.skills ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .55rem; }
+.skills li { line-height: 1.4; font-weight: 500; }
+
+@media (max-width: 900px) {
+  .skills { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .edu, .skills-spread { grid-column: 1 / -1; }
+  .skills { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .skills { grid-template-columns: 1fr; }
+}
