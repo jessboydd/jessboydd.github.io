@@ -37,7 +37,7 @@ Each section in `index.html` has a banner comment naming its CSS and JS files, a
 |---|---|
 | Colors, fonts | top of `css/base.css` |
 | Hero text, descriptors | `index.html` → HERO block |
-| Hero dog size / position | `css/hero.css` (`.peek`, `--dw`) |
+| Hero dog (size, position, wag) | `css/hero.css` (`.peek`, `--dw`); swap `assets/img/dog-peek.png` |
 | About paragraph, facts, photo captions | `index.html` → ABOUT block (Polaroid positions: `css/about.css`) |
 | Photos | replace files in `assets/img/` (keep names) |
 | The orange quote | `index.html` → THE QUOTE block |
