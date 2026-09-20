@@ -1,0 +1,20 @@
+/* ==========================================================
+   OPENING SEQUENCE
+   Full-screen intro: dog drops the pencil, pencil writes the signature. Plays once per visitor (add ?intro to replay).
+   Script: js/opening.js
+   ========================================================== */
+#intro { position: fixed; inset: 0; z-index: 200; display: none; place-items: center; clip-path: inset(0 0 0 0); transition: clip-path .6s cubic-bezier(.75,0,.2,1);
+  background: radial-gradient(60% 55% at 22% 18%, #D9CBF2 0%, transparent 70%), radial-gradient(55% 60% at 82% 88%, #F4C8DC 0%, transparent 70%), radial-gradient(45% 45% at 78% 14%, #F2ECC6 0%, transparent 65%), #AEB7EE; }
+.intro-on #intro { display: grid; }
+#intro.exit { clip-path: inset(0 0 100% 0); }
+.stage { position: relative; display: grid; place-items: center; width: 100%; }
+.stage > .dogstack, .stage > canvas { grid-area: 1 / 1; }
+#intro .dogstack.out { opacity: 0; transform: scale(.94); }
+#sigc { display: block; opacity: 0; }
+#sigc.on { opacity: 1; }
+.penfx { position: absolute; left: 0; top: 0; pointer-events: none; }
+.penfx.fixed { position: fixed; z-index: 210; }
+.dogpen { position: absolute; }
+.skip-intro { position: fixed; z-index: 220; left: 50%; bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: none; border: 0; font-family: var(--mono); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--plum); cursor: pointer; display: none; padding: .7rem 1rem; opacity: 0; animation: fadein .4s ease 1s forwards; }
+.intro-on .skip-intro { display: block; }
+.skip-intro:hover { text-decoration: underline; }

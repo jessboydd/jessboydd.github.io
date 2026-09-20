@@ -1,0 +1,37 @@
+/* ==========================================================
+   5. EXPERIENCE
+   The file drawer: overlapping folders with tabs. Section: #experience   Script: js/experience.js   Content: js/data/experience.js
+   ========================================================== */
+.exp .display { margin-bottom: 2.6rem; }
+.drawer { max-width: 60rem; }
+.folder { position: relative; z-index: var(--n); }
+.folder + .folder { margin-top: -.9rem; }
+.ftab-h { margin: 0; position: relative; z-index: 2; }
+.ftab { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: min(calc(100% - var(--off)), 36rem); margin-left: var(--off); padding: .85rem 1.2rem .8rem; text-align: left; background: var(--fc); border: 2px solid var(--ink); border-bottom: 0; border-radius: 16px 16px 0 0; cursor: pointer; margin-bottom: -2px; position: relative; transition: translate .25s cubic-bezier(.3,1.5,.5,1), filter .2s; }
+.ftab:hover { translate: 0 -4px; }
+.ftab .tt { display: block; font-family: var(--serif); font-size: clamp(1.25rem, 2.2vw, 1.65rem); line-height: 1.05; letter-spacing: -.01em; }
+.ftab .mm { display: block; margin-top: .3rem; font-family: var(--mono); font-size: .7rem; letter-spacing: .02em; line-height: 1.35; }
+.ftab .chev { flex: none; width: 1.7rem; height: 1.7rem; border: 2px solid var(--ink); border-radius: 50%; position: relative; }
+.ftab .chev::before { content: ""; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); translate: -50% -70%; rotate: 45deg; transition: rotate .3s; }
+.ftab[aria-expanded="true"] { translate: 0 -3px; }
+.ftab[aria-expanded="true"] .chev { background: var(--ink); }
+.ftab[aria-expanded="true"] .chev::before { rotate: 225deg; border-color: var(--cream); translate: -50% -30%; }
+.fbody { display: grid; grid-template-rows: 0fr; background: var(--fc); border: 2px solid var(--ink); border-radius: 0 16px 16px 16px; padding: .55rem .7rem; box-shadow: 0 6px 0 rgba(30,22,54,.1); transition: grid-template-rows .5s cubic-bezier(.3,.9,.3,1), padding .4s; }
+.fbody > div { overflow: hidden; visibility: hidden; transition: visibility 0s .5s; }
+.folder.open .fbody { grid-template-rows: 1fr; padding: .9rem .9rem 1.9rem; }
+.folder.open .fbody > div { visibility: visible; transition-delay: 0s; }
+.fpaper { background: #FFFCF3; border-radius: 6px; padding: clamp(1.2rem, 3vw, 2rem); box-shadow: 0 1px 3px rgba(30,22,54,.18); }
+.fpaper ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .65rem; }
+.fpaper li { position: relative; padding-left: 1.4rem; }
+.fpaper li::before { content: ""; position: absolute; left: 0; top: .62em; width: .5rem; height: .5rem; border-radius: 50%; background: var(--ink); }
+@keyframes lift { 0% { transform: translateY(10px) rotate(.4deg); } 60% { transform: translateY(-5px) rotate(-.3deg); } 100% { transform: none; } }
+.folder.pop .fbody { animation: lift .5s cubic-bezier(.3,1.4,.5,1); }
+
+@media (max-width: 720px) {
+  .folder { --off: calc(var(--offn) * 2.4%); }
+  .ftab { width: min(calc(100% - var(--off)), 30rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fbody, .fbody > div, .ftab { transition: none; }
+  .folder.pop .fbody { animation: none; }
+}

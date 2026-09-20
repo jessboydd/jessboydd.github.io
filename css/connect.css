@@ -1,0 +1,32 @@
+/* ==========================================================
+   7. CONNECT
+   Orange closing block: email, LinkedIn, the dog by the links, footer. Section: #connect   Script: js/connect.js
+   ========================================================== */
+.connect { position: relative; margin-inline: var(--inset, 0px); border-radius: var(--rad, 0px); overflow: hidden; color: var(--ink); padding-block: clamp(6rem, 12vw, 10rem) 2.6rem;
+  background: radial-gradient(55% 55% at 84% 10%, rgba(255,222,130,.6), transparent 70%), radial-gradient(45% 50% at 6% 96%, rgba(243,184,207,.55), transparent 70%), linear-gradient(175deg, #EAA151 0%, #DF8443 48%, #D4713F 100%); }
+.connect .wrap { z-index: 1; }
+.ch { margin: 0; font-family: var(--serif); font-weight: 400; color: #fff; font-size: clamp(4.4rem, 15vw, 13.5rem); line-height: .84; letter-spacing: -.035em; }
+.ch span { display: block; }
+.ch span + span { margin-left: .5em; }
+.cline { margin: 1.6rem 0 0; max-width: 24rem; font-weight: 700; font-size: 1.2rem; line-height: 1.35; }
+.links { margin-top: clamp(2rem, 4vw, 3rem); display: flex; flex-wrap: wrap; gap: .6rem 2.8rem; }
+.clink { display: inline-flex; align-items: baseline; gap: .5rem; font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.1; letter-spacing: -.02em; text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 100% 3px no-repeat; padding-bottom: .1em; transition: background-size .3s; }
+.clink .ar { display: inline-block; font-family: var(--sans); font-size: .6em; transition: translate .3s cubic-bezier(.3,1.5,.5,1); }
+.clink:hover, .clink:focus-visible { background-size: 100% 6px; }
+.clink:hover .ar, .clink:focus-visible .ar { translate: .18em -.18em; }
+.addr { margin: 1.4rem 0 0; font-weight: 700; }
+.cdog { position: absolute; right: clamp(1rem, 7vw, 7rem); bottom: 7.2rem; width: clamp(120px, 14vw, 170px); z-index: 2; }
+.cdog .dogstack { width: 100%; opacity: 1; }
+.cdog .floorpen { position: absolute; left: -46%; bottom: 3%; width: 52%; rotate: 5deg; }
+.sitefoot { margin-top: clamp(4rem, 8vw, 6rem); padding-top: 1.6rem; border-top: 2px solid var(--ink); display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; }
+.sitefoot img { height: 46px; width: auto; }
+
+@media (max-width: 900px) {
+  .cdog { right: 3rem; }
+}
+@media (max-width: 720px) {
+  .cdog { position: relative; right: auto; bottom: auto; margin: 2.5rem 0 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .clink, .clink .ar { transition: none; }
+}

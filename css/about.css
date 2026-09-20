@@ -1,0 +1,34 @@
+/* ==========================================================
+   2. ABOUT
+   "A Little About Me": paragraph, quick facts, three overlapping Polaroids. Section: #about   Script: js/about.js
+   ========================================================== */
+.spread { padding-block: clamp(4.5rem, 10vw, 8.5rem); position: relative; }
+.agrid { display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: auto 1fr; column-gap: 1.5rem; row-gap: 2rem; align-items: start; }
+.about h2 { grid-column: 1 / span 7; color: var(--peri); }
+.atext { grid-column: 1 / span 6; }
+.atext p { margin: 0; font-size: 1.2rem; line-height: 1.75; max-width: 35rem; }
+.aside { grid-column: 8 / span 5; grid-row: 1 / span 2; }
+.facts { margin: .4rem 0 0; display: grid; gap: 1.2rem; }
+.facts dt { font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--peri); }
+.facts dd { margin: .15rem 0 0; font-size: 1.1rem; font-weight: 500; line-height: 1.4; }
+.cluster { position: relative; container-type: inline-size; width: 100%; aspect-ratio: 460 / 600; margin-top: 2.6rem; }
+.pol { position: absolute; margin: 0; padding: 2.2cqw 2.2cqw 0; background: #FFFCF3; box-shadow: 0 .4cqw 1.6cqw rgba(30,22,54,.16), 0 .1cqw .3cqw rgba(30,22,54,.22); transition: rotate .45s cubic-bezier(.3,1.4,.5,1), translate .45s cubic-bezier(.3,1.4,.5,1); }
+.pol::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5; mix-blend-mode: multiply; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .45  0 0 0 0 .35  0 0 0 .25 0'/></filter><rect width='100%' height='100%' filter='url(%23p)'/></svg>"); }
+.pol img { display: block; width: 100%; object-fit: cover; }
+.pol figcaption { font-family: var(--script); color: #4A4262; line-height: 1.2; padding: 1.3cqw .6cqw 0; height: 9.6cqw; font-size: 3.1cqw; }
+.pol:hover, .pol.lift { rotate: 0deg !important; translate: 0 -1.4cqw; z-index: 5 !important; }
+.pol.canoe { left: 3cqw; top: 0; width: 47.8cqw; rotate: -3.5deg; z-index: 1; }
+.pol.canoe img { aspect-ratio: 4 / 5; object-position: 50% 62%; }
+.pol.dogs { left: 38cqw; top: 52cqw; width: 58.7cqw; rotate: 2.2deg; z-index: 2; }
+.pol.dogs img { aspect-ratio: 338 / 380; }
+.pol.sun { left: 64cqw; top: 9cqw; width: 32.6cqw; rotate: 7deg; z-index: 3; }
+.pol.sun img { aspect-ratio: 5 / 6; object-position: 50% 40%; }
+.pol.sun figcaption { font-size: 2.7cqw; }
+
+@media (max-width: 720px) {
+  .about h2, .atext, .aside { grid-column: 1 / -1; grid-row: auto; }
+  .cluster { max-width: 26rem; margin-inline: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pol { transition: none; }
+}

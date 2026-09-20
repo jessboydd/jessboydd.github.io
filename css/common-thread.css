@@ -1,0 +1,14 @@
+/* ==========================================================
+   3. THE COMMON THREAD
+   Pull-quote pause between About and Story. Script: js/common-thread.js (pencil underline)
+   ========================================================== */
+.tq { position: relative; padding-block: clamp(6rem, 13vw, 11rem); }
+.tq .wrap { display: grid; }
+.tq-in { position: relative; margin-left: auto; width: min(100%, 50rem); }
+.tq h2 { margin: 0 0 1rem; font-family: var(--serif); font-weight: 400; font-size: clamp(3.6rem, 9.5vw, 8.4rem); line-height: .9; letter-spacing: -.035em; color: var(--orange-deep); }
+.tq p { margin: 0; font-weight: 600; font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.3; letter-spacing: -.02em; max-width: 34rem; }
+.tq .look { position: absolute; left: -9.5rem; top: 1.2rem; display: flex; align-items: center; }
+
+@media (max-width: 1000px) {
+  .tq .look { display: none; }
+}

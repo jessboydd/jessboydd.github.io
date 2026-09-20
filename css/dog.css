@@ -1,0 +1,22 @@
+/* ==========================================================
+   GOLDEN RETRIEVER
+   The layered dog illustration (body, tail, motion lines) and its tail wag. Used by the opening and by Connect.
+   The peeking hero dog has its own rules in hero.css.
+   ========================================================== */
+.dogstack { position: relative; width: clamp(170px, 34vw, 240px); aspect-ratio: 382 / 503; transition: opacity .25s ease, transform .25s ease; }
+.dogstack > img, .dogstack > div { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.dogstack .tail, .dogstack .marks { transform-origin: 69% 51%; }
+@keyframes wag { from { transform: rotate(-5deg); } to { transform: rotate(6deg); } }
+@keyframes wagf { from { transform: rotate(-11deg); } to { transform: rotate(12deg); } }
+@keyframes marks { from { opacity: .2; transform: translateX(-3px); } to { opacity: 1; transform: translateX(2px); } }
+@keyframes hop { 0%,100% { transform: translateY(0); } 45% { transform: translateY(-7px) rotate(-1.5deg); } }
+@keyframes fadein { to { opacity: 1; } }
+.wag .tail { animation: wag .4s ease-in-out infinite alternate; }
+.wag .marks { animation: marks .4s ease-in-out infinite alternate; }
+.final { animation: hop .55s ease-out; }
+.final .tail { animation: wagf .13s ease-in-out 5 alternate; }
+.final .marks { animation: marks .13s ease-in-out 5 alternate; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wag .tail, .wag .marks { animation: none !important; }
+}
