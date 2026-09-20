@@ -1,37 +1,70 @@
 /* ==========================================================
-   5. EXPERIENCE
-   The file drawer: overlapping folders with tabs. Section: #experience   Script: js/experience.js   Content: js/data/experience.js
+   4. WORK EXPERIENCE
+   A spiral notebook page listing the roles (each with a star), a "Download Resume" link, a pink sticky note with
+   education taped to the top right, and a tilted grid panel behind it all. Section: #experience   (no script)
+   Desktop (1000px+) follows the 1016px design frame, scaled with --gpx (see base.css).
+   Below that the sticky note drops under the notebook.
    ========================================================== */
-.exp .display { margin-bottom: 2.6rem; }
-.drawer { max-width: 60rem; }
-.folder { position: relative; z-index: var(--n); }
-.folder + .folder { margin-top: -.9rem; }
-.ftab-h { margin: 0; position: relative; z-index: 2; }
-.ftab { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: min(calc(100% - var(--off)), 36rem); margin-left: var(--off); padding: .85rem 1.2rem .8rem; text-align: left; background: var(--fc); border: 2px solid var(--ink); border-bottom: 0; border-radius: 16px 16px 0 0; cursor: pointer; margin-bottom: -2px; position: relative; transition: translate .25s cubic-bezier(.3,1.5,.5,1), filter .2s; }
-.ftab:hover { translate: 0 -4px; }
-.ftab .tt { display: block; font-family: var(--serif); font-size: clamp(1.25rem, 2.2vw, 1.65rem); line-height: 1.05; letter-spacing: -.01em; }
-.ftab .mm { display: block; margin-top: .3rem; font-family: var(--mono); font-size: .7rem; letter-spacing: .02em; line-height: 1.35; }
-.ftab .chev { flex: none; width: 1.7rem; height: 1.7rem; border: 2px solid var(--ink); border-radius: 50%; position: relative; }
-.ftab .chev::before { content: ""; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); translate: -50% -70%; rotate: 45deg; transition: rotate .3s; }
-.ftab[aria-expanded="true"] { translate: 0 -3px; }
-.ftab[aria-expanded="true"] .chev { background: var(--ink); }
-.ftab[aria-expanded="true"] .chev::before { rotate: 225deg; border-color: var(--cream); translate: -50% -30%; }
-.fbody { display: grid; grid-template-rows: 0fr; background: var(--fc); border: 2px solid var(--ink); border-radius: 0 16px 16px 16px; padding: .55rem .7rem; box-shadow: 0 6px 0 rgba(30,22,54,.1); transition: grid-template-rows .5s cubic-bezier(.3,.9,.3,1), padding .4s; }
-.fbody > div { overflow: hidden; visibility: hidden; transition: visibility 0s .5s; }
-.folder.open .fbody { grid-template-rows: 1fr; padding: .9rem .9rem 1.9rem; }
-.folder.open .fbody > div { visibility: visible; transition-delay: 0s; }
-.fpaper { background: #FFFCF3; border-radius: 6px; padding: clamp(1.2rem, 3vw, 2rem); box-shadow: 0 1px 3px rgba(30,22,54,.18); }
-.fpaper ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .65rem; }
-.fpaper li { position: relative; padding-left: 1.4rem; }
-.fpaper li::before { content: ""; position: absolute; left: 0; top: .62em; width: .5rem; height: .5rem; border-radius: 50%; background: var(--ink); }
-@keyframes lift { 0% { transform: translateY(10px) rotate(.4deg); } 60% { transform: translateY(-5px) rotate(-.3deg); } 100% { transform: none; } }
-.folder.pop .fbody { animation: lift .5s cubic-bezier(.3,1.4,.5,1); }
+.work { position: relative; overflow: hidden; padding: clamp(2.5rem, calc(48 * var(--gpx)), 4.5rem) 0 0; background: linear-gradient(180deg, #CDDFFC 0%, #FBFDFF 100%); }
+.work-in { position: relative; width: min(100%, 1600px); margin-inline: auto; padding-bottom: 3rem; }
 
-@media (max-width: 720px) {
-  .folder { --off: calc(var(--offn) * 2.4%); }
-  .ftab { width: min(calc(100% - var(--off)), 30rem); }
+.gridpanel { position: absolute; z-index: 0; left: calc(300 * var(--gpx)); top: calc(541 * var(--gpx) - 48 * var(--gpx)); width: calc(1100 * var(--gpx)); height: calc(700 * var(--gpx)); rotate: -20.3deg; transform-origin: 0 0; background-color: #A9C2EF;
+  background-image: linear-gradient(to right, #C8D9F7 calc(1.4 * var(--gpx)), transparent calc(1.4 * var(--gpx))), linear-gradient(to bottom, #C8D9F7 calc(1.4 * var(--gpx)), transparent calc(1.4 * var(--gpx))); background-size: calc(19.5 * var(--gpx)) calc(19.5 * var(--gpx)); }
+
+.notebook { position: relative; z-index: 1; margin-left: max(2rem, calc(72 * var(--gpx))); width: min(calc(565 * var(--gpx)), calc(100% - 3rem)); min-height: calc(514 * var(--gpx)); padding: calc(20 * var(--gpx)) calc(10 * var(--gpx)) calc(26 * var(--gpx)) calc(63 * var(--gpx)); background: #FAFAFA; box-shadow: calc(6 * var(--gpx)) calc(6 * var(--gpx)) calc(22 * var(--gpx)) rgba(60,100,190,.2); }
+.rings { position: absolute; left: calc(-14 * var(--gpx)); top: calc(14 * var(--gpx)); bottom: 0; width: calc(63 * var(--gpx)); background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='85 11 315 223.5'><rect x='310' y='65' width='82' height='117' fill='%232C2C2C'/><g fill='none' stroke='%231c1c1c' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'><path d='M312 105 C230 102 150 108 100 126 C92 132 100 140 130 141 C150 142 162 145 160 150'/><path d='M312 149 C260 148 200 150 160 156'/><path d='M100 160 C96 168 108 178 140 180 C152 181 162 184 160 188'/></g></svg>") 0 0 / 100% calc(44.7 * var(--gpx)) repeat-y; pointer-events: none; }
+
+.notebook h2 { margin: 0; font-family: var(--serif); font-weight: 400; color: #000; font-size: calc(83.8 * var(--gpx)); line-height: 1; letter-spacing: -.005em; }
+.roles { list-style: none; margin: calc(14 * var(--gpx)) 0 0; padding: 0; }
+.roles li { display: flex; align-items: center; gap: calc(10 * var(--gpx)); height: calc(67 * var(--gpx)); margin-left: calc(5 * var(--gpx)); }
+.roles .star { flex: none; width: calc(41 * var(--gpx)); height: calc(41 * var(--gpx)); rotate: var(--r, 0deg); }
+.star { display: block; overflow: visible; }
+.star path { fill: #DCD046; stroke: #DCD046; stroke-width: 5; stroke-linejoin: round; }
+.roles h3 { margin: 0; color: #000; font-family: var(--sans); font-weight: 700; font-size: calc(18.8 * var(--gpx)); line-height: 1.2; white-space: nowrap; }
+.roles p { margin: calc(2 * var(--gpx)) 0 0; color: #000; font-size: calc(15.2 * var(--gpx)); line-height: 1.25; }
+
+.resume { display: flex; align-items: center; justify-content: center; gap: calc(6 * var(--gpx)); margin: calc(8 * var(--gpx)) 0 0 calc(-20 * var(--gpx)); text-decoration: none; color: #000; }
+.resume svg { flex: none; width: calc(41 * var(--gpx)); height: calc(38 * var(--gpx)); }
+.resume .cl { fill: var(--lilac); }
+.resume .ar { fill: none; stroke: #FAFAFA; stroke-width: 3.6; stroke-linecap: round; stroke-linejoin: round; }
+.resume span { display: block; line-height: 1.15; }
+.resume b { display: block; color: var(--lilac); font-weight: 700; font-size: calc(18.5 * var(--gpx)); letter-spacing: 0; text-transform: uppercase; }
+.resume span span { font-size: calc(15.5 * var(--gpx)); }
+.resume:hover b, .resume:focus-visible b { text-decoration: underline; text-underline-offset: .15em; }
+
+/* the pink sticky note, taped at the top right of the notebook */
+.sticky { position: absolute; z-index: 2; left: calc(692 * var(--gpx)); top: calc(17 * var(--gpx)); width: calc(236 * var(--gpx)); padding: calc(52 * var(--gpx)) calc(16 * var(--gpx)) calc(22 * var(--gpx)) calc(20 * var(--gpx)); background: #F6CFD5; color: #000; rotate: 4deg; box-shadow: 0 calc(3 * var(--gpx)) calc(10 * var(--gpx)) rgba(60,60,110,.12); }
+.sticky h3 { margin: 0; font-family: var(--sans); font-weight: 700; font-size: calc(17.2 * var(--gpx)); line-height: 1.2; }
+.sticky p { margin: calc(3 * var(--gpx)) 0 calc(20 * var(--gpx)); font-size: calc(14.4 * var(--gpx)); line-height: 1.25; }
+.sticky p:last-child { margin-bottom: 0; }
+.tape { position: absolute; left: calc(66 * var(--gpx)); top: calc(-21 * var(--gpx)); width: calc(124 * var(--gpx)); height: calc(42 * var(--gpx)); background: var(--lilac); rotate: .5deg;
+  clip-path: polygon(0 0, 100% 3%, 98% 10%, 100% 18%, 98% 26%, 100% 34%, 98% 42%, 100% 50%, 98% 58%, 100% 66%, 98% 74%, 100% 82%, 98% 90%, 100% 97%, 0 100%, 2% 92%, 0 84%, 2% 76%, 0 68%, 2% 60%, 0 52%, 2% 44%, 0 36%, 2% 28%, 0 20%, 2% 12%); }
+
+/* below 1000px: no room for the two-column layout, so the note drops under the notebook.
+   Type is sized in rem here so it stays readable on phones. */
+@media (max-width: 999px) {
+  .work { padding-top: 2.5rem; }
+  .work-in { display: flex; flex-direction: column; align-items: center; padding-bottom: 3.5rem; }
+  .gridpanel { left: 30%; top: auto; bottom: -8rem; width: 90rem; height: 40rem; rotate: -20.3deg; background-size: 1.2rem 1.2rem; background-image: linear-gradient(to right, #C8D9F7 1.5px, transparent 1.5px), linear-gradient(to bottom, #C8D9F7 1.5px, transparent 1.5px); }
+  .notebook { margin: 0; width: min(calc(100% - 3.2rem), 40rem); min-height: 0; padding: 1.4rem 1.2rem 1.6rem 3.6rem; box-shadow: .4rem .4rem 1.4rem rgba(60,100,190,.2); }
+  .rings { left: -.9rem; top: .9rem; width: 4rem; background-size: 100% 2.9rem; }
+  .notebook h2 { font-size: clamp(2.9rem, 10.5vw, 5.2rem); }
+  .roles { margin-top: 1rem; }
+  .roles li { height: auto; min-height: 4.3rem; margin-left: 0; gap: .8rem; padding-block: .35rem; align-items: center; }
+  .roles .star { width: 2.4rem; height: 2.4rem; }
+  .roles h3 { font-size: 1.1rem; white-space: normal; }
+  .roles p { font-size: .9rem; margin-top: .15rem; }
+  .resume { margin: 1rem 0 0; }
+  .resume svg { width: 2.6rem; height: 2.4rem; }
+  .resume b { font-size: 1.05rem; }
+  .resume span span { font-size: .9rem; }
+  .sticky { position: relative; left: auto; top: auto; z-index: 2; width: min(17.5rem, calc(100% - 3.2rem)); margin-top: 3rem; align-self: flex-end; margin-right: max(1.6rem, calc(50% - 20rem)); padding: 3.2rem 1.2rem 1.4rem 1.4rem; box-shadow: 0 .2rem .8rem rgba(60,60,110,.14); }
+  .sticky h3 { font-size: 1.05rem; }
+  .sticky p { font-size: .92rem; margin-bottom: 1.1rem; }
+  .tape { left: 34%; top: -1rem; width: 7.5rem; height: 2.4rem; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .fbody, .fbody > div, .ftab { transition: none; }
-  .folder.pop .fbody { animation: none; }
+@media (max-width: 480px) {
+  .notebook { width: calc(100% - 2.6rem); padding-left: 3.2rem; padding-right: .9rem; }
+  .rings { width: 3.6rem; }
+  .sticky { margin-right: 1.3rem; }
 }

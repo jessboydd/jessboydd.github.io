@@ -4,9 +4,12 @@
    ========================================================== */
 .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 80; padding-top: env(safe-area-inset-top, 0px); transition: background .3s, box-shadow .3s; }
 .site-header.solid { background: color-mix(in srgb, var(--cream) 94%, transparent); backdrop-filter: blur(8px); box-shadow: 0 1px 0 rgba(30,22,54,.16); }
-.hin { display: flex; align-items: center; justify-content: space-between; height: 4.5rem; gap: 1rem; }
-.logo { display: block; line-height: 0; }
-.logo img { height: 50px; width: auto; transition: filter .3s; }
+.site-header { --logo-h: clamp(50px, calc(100 * var(--gpx)), 150px); --logo-top: clamp(.4rem, calc(24 * var(--gpx)), 3.4rem); }
+.site-header.solid { --logo-h: 50px; --logo-top: calc((4.5rem - 50px) / 2); }
+.hin { display: flex; align-items: center; justify-content: flex-end; height: 4.5rem; gap: 1rem; }
+/* the signature sits centered, large over the hero and shrinking to a small mark once the header turns solid */
+.logo { position: absolute; left: 50%; top: var(--logo-top); translate: -50% 0; display: block; line-height: 0; transition: top .3s ease; }
+.logo img { height: var(--logo-h); width: auto; transition: filter .3s, height .3s ease; }
 .nav { display: flex; gap: 1.6rem; align-items: center; }
 .nav a { font-weight: 600; font-size: .95rem; }
 .menubtn { display: none; background: none; border: 2px solid var(--ink); padding: .5rem 1rem; font-weight: 700; font-size: .9rem; cursor: pointer; }

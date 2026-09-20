@@ -27,10 +27,9 @@
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/hero.css">
 <link rel="stylesheet" href="css/about.css">
-<link rel="stylesheet" href="css/common-thread.css">
-<link rel="stylesheet" href="css/story.css">
+<link rel="stylesheet" href="css/quote.css">
 <link rel="stylesheet" href="css/experience.css">
-<link rel="stylesheet" href="css/education.css">
+<link rel="stylesheet" href="css/skills.css">
 <link rel="stylesheet" href="css/connect.css">
 </head>
 <body>
@@ -56,16 +55,15 @@
     <a class="logo" href="#top" aria-label="Jess Boyd, back to top"><img data-a="sig" alt="Jess Boyd"></a>
     <nav class="nav" aria-label="Primary" id="nav">
       <a class="ulh" href="#about">About</a>
-      <a class="ulh" href="#story">Story</a>
       <a class="ulh" href="#experience">Experience</a>
-      <a class="ulh" href="#education">Education</a>
+      <a class="ulh" href="#skills">Skills</a>
       <a class="ulh" href="#connect">Connect</a>
     </nav>
     <button class="menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
   </div>
 </header>
 <nav class="menu" id="menu" aria-label="Mobile">
-  <a href="#about">About</a><a href="#story">Story</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#connect">Connect</a>
+  <a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#connect">Connect</a>
 </nav>
 
 <main id="main">
@@ -80,112 +78,85 @@
       <ul class="descr rise" style="--d:3"><li>Project Coordinator</li><li>Product Innovation Student</li><li>Creative at Heart</li></ul>
     </div>
     <div class="keep" aria-hidden="true"><span class="script" data-draw>keep scrolling</span><span class="arrow" data-arrow="down"></span></div>
-    <div class="peek" aria-hidden="true"><div class="peekin" id="peekIn">
-      <img data-a="ptail" class="ptail" alt=""><img data-a="pbase" alt=""><img data-a="ppencil" alt=""><img data-a="pmarks" class="pmarks" alt="">
-    </div></div>
+    <div class="peek" aria-hidden="true">
+      <svg class="pline" viewBox="0 0 200 8" preserveAspectRatio="none" focusable="false"><path d="M2 4.3 C 46 3.2, 132 4.9, 198 3.7"/></svg>
+      <div class="peekclip"><div class="peekin" id="peekIn">
+        <img data-a="ptail" class="ptail" alt=""><img data-a="pbase" alt=""><img data-a="ppencil" alt=""><img data-a="pmarks" class="pmarks" alt="">
+        <svg class="paws" viewBox="0 398 546 56" focusable="false">
+          <g id="paw"><path class="pf" fill="#FBF6EA" stroke="none" d="M48 399 C47 421 52 445 65 447 C74 448 79.5 443 81.5 437 C85 446 103 446 107.5 437 C110 443 116 448 126 447 C138 446 143 421 141 399 Z"/><path class="ps" fill="none" stroke="#0a0a0a" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round" d="M48 399 C47 421 52 445 65 447 C74 448 79.5 443 81.5 437 C85 446 103 446 107.5 437 C110 443 116 448 126 447 C138 446 143 421 141 399 M81.5 399 L81.5 437 M107.5 399 L107.5 437"/></g>
+          <use href="#paw" x="142"/>
+        </svg>
+      </div></div>
+    </div>
   </section>
 
   <!-- ==================================================
        2.  ABOUT — A Little About Me
        css/about.css · js/about.js
        ================================================== -->
-  <section class="spread about" id="about" aria-labelledby="about-h">
-    <div class="wrap agrid">
-      <h2 class="display reveal" id="about-h">A Little<br>About Me</h2>
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div class="about-in">
+      <h2 class="reveal" id="about-h">A Little About Me</h2>
       <div class="atext reveal" style="--d:1">
         <p>I’ve built my work around helping ideas take shape—supporting projects and programs from early planning through execution, while paying close attention to how they’re experienced along the way. My background is in design, visual communication, and project coordination, with experience across academic, nonprofit, and professional settings. I bring a <span class="hl" data-draw>calm, steady approach</span> to moving pieces, holding timelines, communication, and details.</p>
       </div>
-      <aside class="aside" aria-label="Quick facts and photos">
-        <dl class="facts reveal" style="--d:2">
-          <div><dt>Home</dt><dd>Louisiana roots → Northwest Arkansas</dd></div>
-          <div><dt>Creative at heart</dt><dd>design • photography • making things</dd></div>
-          <div><dt>Right now</dt><dd>Project Coordinator, Milestone Leadership<br>M.S. in Product Innovation, University of Arkansas</dd></div>
-        </dl>
-        <div class="cluster reveal" id="cluster" style="--d:3">
-          <figure class="pol canoe"><img data-a="canoe" alt="Jess smiling from a canoe on a green river beneath a bluff"><figcaption>always up for<br>an adventure</figcaption></figure>
-          <figure class="pol dogs"><img data-a="dogs" alt="Two golden retrievers resting in a doorway"><figcaption>Obi + Penny ♡</figcaption></figure>
-          <figure class="pol sun"><img data-a="sun" alt="Close-up of Jess smiling in sunglasses by the water"><figcaption>probably somewhere<br>sunny :)</figcaption></figure>
-        </div>
+      <dl class="facts reveal" style="--d:2">
+        <div><dt>Home</dt><dd>Louisiana roots → Northwest Arkansas</dd></div>
+        <div><dt>Creative at heart</dt><dd>design • photography • making things</dd></div>
+        <div><dt>Current work</dt><dd>Project Coordinator, Milestone Leadership<br>M.S. in Product Innovation, University of Arkansas</dd></div>
+        <div><dt>Fun fact</dt><dd>I really enjoy thriller and crime podcasts,<br>books and shows.</dd></div>
+      </dl>
+      <div class="cluster reveal" id="cluster" style="--d:3">
+        <figure class="pol portrait"><img data-a="portrait" alt="Jess smiling outdoors in a teal top, with green trees blurred behind"><figcaption>jess</figcaption></figure>
+        <figure class="pol canoe"><img data-a="canoe" alt="Jess smiling from a canoe on a green river beneath a bluff"><figcaption>probably somewhere<br>sunny :)</figcaption></figure>
+        <figure class="pol dogs"><img data-a="dogs" alt="Two golden retrievers resting in a doorway"><figcaption>Penny + Obi</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       3.  THE QUOTE (orange, with doodles)
+       css/quote.css · doodles draw in via js/effects.js
+       ================================================== -->
+  <section class="quote" aria-label="The common thread">
+    <p class="reveal">I love taking an <span class="dd dd-idea">idea<svg class="mark" viewBox="0 0 168 91" preserveAspectRatio="none" aria-hidden="true" data-draw><path pathLength="1" d="M82 1 C 45 3 4 24 2 63 C 1 85 25 91 62 90 C 108 89 160 71 166 44 C 169 24 140 6 88 6"/></svg></span> and turning it into something that makes an <span class="dd dd-exp">experience<svg class="mark" viewBox="0 0 320 14" preserveAspectRatio="none" aria-hidden="true" data-draw><path pathLength="1" d="M2 9 C 90 2 210 1 318 4"/></svg></span> <span class="dd dd-bet">better<svg class="mark" viewBox="0 0 266 24" preserveAspectRatio="none" aria-hidden="true" data-draw><path pathLength="1" d="M1 21 C 3 15 30 11 100 6 C 150 2 210 -1 265 8"/></svg></span> for someone.</p>
+  </section>
+
+  <!-- ==================================================
+       4.  WORK EXPERIENCE (notebook + education sticky note)
+       css/experience.css · no script
+       ================================================== -->
+  <section class="work" id="experience" aria-labelledby="exp-h">
+    <div class="work-in">
+      <div class="gridpanel" aria-hidden="true"></div>
+      <div class="notebook reveal">
+        <span class="rings" aria-hidden="true"></span>
+        <h2 id="exp-h">Work Experience</h2>
+        <ol class="roles">
+          <li><svg class="star" viewBox="0 0 60 60" aria-hidden="true" style="--r:-6deg"><path d="M30 6 L36 22 L54 24 L40 35 L45 52 L30 43 L15 52 L20 35 L6 24 L24 22 Z"/></svg><div><h3>Project Coordinator</h3><p>Milestone Leadership | Feb 2026 — Present</p></div></li>
+          <li><svg class="star" viewBox="0 0 60 60" aria-hidden="true" style="--r:8deg"><path d="M31 5 L35 23 L55 25 L39 36 L46 53 L29 42 L13 52 L21 35 L5 23 L25 22 Z"/></svg><div><h3>Graduate Assistant – Program Support (Esports)</h3><p>John Brown University Athletics | Aug 2025 – Jan 2026</p></div></li>
+          <li><svg class="star" viewBox="0 0 60 60" aria-hidden="true" style="--r:-3deg"><path d="M30 7 L37 21 L53 26 L41 38 L44 54 L29 44 L15 53 L19 36 L6 25 L23 23 Z"/></svg><div><h3>Design &amp; Communications Specialist</h3><p>Graham Group | Jan 2024 — Aug 2025</p></div></li>
+          <li><svg class="star" viewBox="0 0 60 60" aria-hidden="true" style="--r:7deg"><path d="M30 6 L36 22 L54 24 L40 35 L45 52 L30 43 L15 52 L20 35 L6 24 L24 22 Z"/></svg><div><h3>Communications &amp; Program Support Associate</h3><p>Cole Lusby Marketing (Remote) | Mar 2020 – Sep 2022</p></div></li>
+          <li><svg class="star" viewBox="0 0 60 60" aria-hidden="true" style="--r:-8deg"><path d="M31 5 L35 23 L55 25 L39 36 L46 53 L29 42 L13 52 L21 35 L5 23 L25 22 Z"/></svg><div><h3>Freelance Creative Coordinator - Design &amp; Photo</h3><p>Self-Employed | 2017 – Present</p></div></li>
+        </ol>
+        <a class="resume" href="assets/Jess-Boyd-Resume.pdf" download="Jess-Boyd-Resume.pdf">
+          <svg viewBox="0 0 48 44" aria-hidden="true" focusable="false"><path class="cl" d="M13 40 C 5 40 1 34 2 28 C 3 22 8 20 12 20 C 12 11 19 4 28 4 C 36 4 42 10 42 18 C 46 19 48 23 47 28 C 46 34 42 40 35 40 Z"/><path class="ar" d="M24.5 16 L24.5 32 M18 27 L24.5 34 L31 27"/></svg>
+          <span><b>Download Resume</b><span>For More Details &amp; Skills List</span></span>
+        </a>
+      </div>
+      <aside class="sticky reveal" style="--d:2" aria-label="Education">
+        <span class="tape" aria-hidden="true"></span>
+        <h3>M.S. in Product Innovation</h3>
+        <p>University of Arkansas<br>2026 — 2028</p>
+        <h3>B.F.A. in Graphic Design</h3>
+        <p><em>Summa Cum Laude</em><br>UL Lafayette<br>May 2019, GPA 3.94</p>
       </aside>
     </div>
   </section>
 
   <!-- ==================================================
-       3.  THE COMMON THREAD (pull-quote)
-       css/common-thread.css · js/common-thread.js
-       ================================================== -->
-  <section class="tq" aria-label="The common thread">
-    <div class="wrap"><div class="tq-in">
-      <h2 class="reveal">The common thread?</h2>
-      <p class="reveal" style="--d:1">I love taking an idea and turning it into something that makes an experience <span class="mk" id="ulMk">better for someone<svg class="mark" viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 8 C 24 3, 44 12, 66 7 S 100 4, 118 8"/><path pathLength="1" style="--i:1" d="M8 11.5 C 40 8, 76 12.5, 112 9.5"/></svg></span>.</p>
-      <div class="look" aria-hidden="true"><span class="script" data-draw>look here</span><span class="arrow" data-arrow="right"></span></div>
-    </div></div>
-  </section>
-
-  <!-- ==================================================
-       4.  STORY — How I Got Here
-       css/story.css · no script
-       ================================================== -->
-  <section class="spread story" id="story" aria-labelledby="story-h">
-    <div class="wrap">
-      <h2 class="display reveal" id="story-h">How I Got Here</h2>
-      <div class="stages">
-        <div class="stg s1 reveal">
-          <svg class="star" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6 L36 22 L54 24 L40 35 L45 52 L30 43 L15 52 L20 35 L6 24 L24 22 Z"/></svg>
-          <div><h3>Graphic Designer + Marketer + Photographer</h3><p>Agency Designer + Photographer</p></div>
-        </div>
-        <span class="arrow dir" data-arrow="right" aria-hidden="true"></span>
-        <div class="stg s2 reveal" style="--d:1">
-          <svg class="star" viewBox="0 0 60 60" aria-hidden="true"><path d="M31 5 L35 23 L55 25 L39 36 L46 53 L29 42 L13 52 L21 35 L5 23 L25 22 Z"/></svg>
-          <div><h3>Leadership Development + Project Coordination</h3><p>Program Designer + Planner + Coordinator</p></div>
-        </div>
-        <span class="arrow dir" data-arrow="right" aria-hidden="true"></span>
-        <div class="stg s3 reveal" style="--d:2">
-          <svg class="star" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 7 L37 21 L53 26 L41 38 L44 54 L29 44 L15 53 L19 36 L6 25 L23 23 Z"/></svg>
-          <div><h3>Product Innovation</h3><p>Bringing the pieces together</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================================================
-       5.  EXPERIENCE (folders are built by the script)
-       css/experience.css · js/experience.js · text lives in js/data/experience.js
-       ================================================== -->
-  <section class="spread exp" id="experience" aria-labelledby="exp-h">
-    <div class="wrap">
-      <p class="label reveal">Relevant Work Experience</p>
-      <h2 class="display reveal" id="exp-h" style="--d:1">Experience</h2>
-      <div class="drawer reveal" id="drawer" style="--d:2"></div>
-    </div>
-  </section>
-
-  <!-- ==================================================
-       6a.  EDUCATION
-       css/education.css · no script
-       ================================================== -->
-  <section class="spread" id="education" aria-label="Education" style="padding-bottom:0">
-    <div class="wrap edu-wrap">
-      <div class="edu reveal">
-        <h2>Education</h2>
-        <div class="deg">
-          <h3>M.S. in Product Innovation</h3>
-          <p>University of Arkansas, Walton College</p>
-          <p class="mono">Started 2026 · Currently enrolled</p>
-        </div>
-        <div class="deg">
-          <h3>B.F.A. in Graphic Design</h3>
-          <span class="hon">Summa Cum Laude</span>
-          <p>University of Louisiana at Lafayette</p>
-          <p class="mono">May 2019, GPA 3.94</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================================================
-       6b.  SKILLS
-       css/education.css · no script
+       5.  SKILLS
+       css/skills.css · no script
        ================================================== -->
   <section class="spread skills-spread" id="skills" aria-labelledby="skills-h">
     <div class="wrap">
@@ -200,7 +171,7 @@
   </section>
 
   <!-- ==================================================
-       7.  CONNECT (email, LinkedIn, footer)
+       6.  CONNECT (email, LinkedIn, footer)
        css/connect.css · js/connect.js
        ================================================== -->
   <section class="connect" id="connect" aria-labelledby="connect-h">
@@ -225,14 +196,11 @@
 <script src="js/data/images.js"></script>
 <script src="js/data/signature-path.js"></script>
 <script src="js/data/pencil.js"></script>
-<script src="js/data/experience.js"></script>
 <script src="js/core.js"></script>
 <script src="js/effects.js"></script>
 <script src="js/header.js"></script>
 <script src="js/hero.js"></script>
 <script src="js/about.js"></script>
-<script src="js/common-thread.js"></script>
-<script src="js/experience.js"></script>
 <script src="js/connect.js"></script>
 <script src="js/opening.js"></script>
 <script src="js/init.js"></script>

@@ -1,29 +1,40 @@
 /* ==========================================================
    1. HERO
-   Purple title screen, headline, squiggle, and the dog that peeks over the fold. Section: #top   Script: js/hero.js
+   Flat purple title screen, headline, squiggle, and the dog that peeks over the fold and rests on a ledge line
+   at the bottom edge (its paws hang over into the About section). Section: #top   Script: js/hero.js
+   Sizes marked "gpx" come from the 1016px-wide design frame (see --gpx in base.css).
    ========================================================== */
-.hero { --dw: clamp(15rem, 27vw, 30rem); --dh: calc(var(--dw) * .736); position: relative; min-height: 100vh; min-height: 100svh; color: #fff; overflow: clip; display: flex; flex-direction: column;
-  background: radial-gradient(60% 55% at 78% 18%, rgba(150,138,206,.42), transparent 70%), linear-gradient(180deg, #645BA6 0%, #6A61AC 58%, #756CB3 100%); }
-.hero-inner { position: relative; z-index: 3; flex: 1; display: flex; flex-direction: column; width: 100%; padding: 7.6rem clamp(1.25rem, 5vw, 4.5rem) 5rem; }
-h1.hi { margin: 0; font-family: var(--serif); font-weight: 400; color: var(--pink-soft); font-size: clamp(4.4rem, 16.5vw, 15.5rem); line-height: .88; letter-spacing: -.035em; max-width: 4.7em; }
+.hero { --dw: clamp(15rem, 31vw, 36rem); --dh: calc(var(--dw) * .736); position: relative; z-index: 5; min-height: 100vh; min-height: 100svh; color: #fff; display: flex; flex-direction: column;
+  background: #6A63A4; }
+.hero-inner { position: relative; z-index: 3; flex: 1; display: flex; flex-direction: column; width: 100%; padding: clamp(7.4rem, calc(104 * var(--gpx)), 15rem) clamp(1.25rem, 5vw, 4.5rem) 2.5rem clamp(1.5rem, calc(116 * var(--gpx)), 12rem); }
+h1.hi { margin: 0; font-family: var(--serif); font-weight: 400; color: #E5C4E2; font-size: calc(151 * var(--gpx)); line-height: .78; letter-spacing: -.01em; max-width: 4.7em; }
 h1.hi .l { display: inline-block; white-space: nowrap; }
 h1.hi .l2 { position: relative; }
-.squig { position: absolute; left: 1%; bottom: -.2em; width: 102%; height: .36em; overflow: visible; color: var(--pink-soft); filter: url(#rough); pointer-events: none; clip-path: inset(-25% 100% -25% 0); transition: clip-path 1.05s cubic-bezier(.5,.1,.2,1) .8s; }
+.squig { position: absolute; left: 5.4%; bottom: -.2em; width: 64%; height: .2em; overflow: visible; color: #E5C4E2; filter: url(#rough); pointer-events: none; clip-path: inset(-25% 100% -25% 0); transition: clip-path 1.05s cubic-bezier(.5,.1,.2,1) .8s; }
 .squig path { fill: currentColor; }
 .page-ready .squig { clip-path: inset(-25% -2% -25% 0); }
-.sub { margin: clamp(2.6rem, 5.5vw, 4rem) 0 0; max-width: 30rem; font-weight: 500; font-size: clamp(1.15rem, 1.9vw, 1.6rem); line-height: 1.38; letter-spacing: -.01em; }
-.descr { list-style: none; margin: 1.7rem 0 0; padding: 0; font-size: .76rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; line-height: 2.15; opacity: .92; }
+.sub { margin: calc(46 * var(--gpx)) 0 0; max-width: 17em; font-weight: 600; font-size: max(1.15rem, calc(20.3 * var(--gpx))); line-height: 1.18; letter-spacing: 0; }
+.descr { list-style: none; margin: calc(14 * var(--gpx)) 0 0; padding: 0; font-size: max(.85rem, calc(14 * var(--gpx))); letter-spacing: .02em; text-transform: uppercase; font-weight: 400; line-height: 1.6; }
 .keep { position: absolute; z-index: 4; left: clamp(1.25rem, 5vw, 4.5rem); bottom: 2rem; display: flex; align-items: center; gap: .4rem; color: #fff; pointer-events: none; }
 .js .keep { opacity: 0; }
 .js.page-ready .keep { opacity: var(--kop, 1); transition: opacity .5s ease .9s; }
 .js.page-ready .keep.moving { transition: opacity .2s; }
 .keep .script, .keep .arrow { color: #fff; }
 .keep .arrow path { stroke-width: 3; }
-.peek { position: absolute; z-index: 4; bottom: 0; right: clamp(2rem, 10vw, 11rem); width: var(--dw); height: var(--dh); overflow: hidden; pointer-events: none; }
-.peekin { position: absolute; inset: 0; pointer-events: auto; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.js .peekin { transform: translateY(var(--ty, 100%)); transition: transform .16s linear; }
+@media (min-width: 901px) { .keep { left: calc(390 * var(--gpx)); } }
+
+/* the dog (rises when the page is ready): 546x402 art. Its bottom edge sits on the ledge line; drawn paws hang 56 units below it. */
+.peek { position: absolute; z-index: 4; bottom: calc(var(--dh) * -.139); right: clamp(2rem, calc(109 * var(--gpx)), 14rem); width: var(--dw); height: calc(var(--dh) * 1.139); pointer-events: none; }
+.peekclip { position: absolute; inset: 0; overflow: hidden; }
+.pline { position: absolute; left: -8%; width: 116%; top: 87.8%; height: calc(var(--dw) * .016); translate: 0 -50%; overflow: visible; opacity: 0; transition: opacity .6s ease .35s; }
+.pline path { fill: none; stroke: #030303; stroke-width: 1.7; stroke-linecap: round; vector-effect: none; }
+.page-ready .pline { opacity: 1; }
+.peekin { position: absolute; left: 0; right: 0; top: 0; height: var(--dh); pointer-events: auto; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.js .peekin { transform: translateY(114%); }
+.js.page-ready .peekin { transform: none; transition: transform .9s cubic-bezier(.2,.9,.3,1.15) .35s; }
 .peekin img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; user-select: none; -webkit-user-drag: none; }
 .peekin .ptail, .peekin .pmarks { transform-origin: 71% 101%; }
+.paws { position: absolute; left: 0; top: calc(100% * 398 / 402); width: 100%; height: calc(100% * 56 / 402); overflow: visible; }
 @keyframes pwag { from { transform: rotate(-7deg); } to { transform: rotate(9deg); } }
 @keyframes pmarks { from { opacity: .15; } to { opacity: 1; } }
 .peekin.wag .ptail { animation: pwag .36s ease-in-out infinite alternate; }
@@ -33,10 +44,13 @@ h1.hi .l2 { position: relative; }
   .hero { --dw: clamp(14rem, 42vw, 25rem); }
   .hero-inner { padding-bottom: calc(var(--dh) + 3.4rem); }
   .peek { right: 7vw; }
+  h1.hi { font-size: clamp(4.4rem, 16vw, 11rem); line-height: .86; }
+  .sub { font-size: clamp(1.15rem, 2.6vw, 1.5rem); margin-top: 2.4rem; }
+  .descr { font-size: .85rem; margin-top: 1.4rem; }
 }
 @media (max-width: 720px) {
-  .hero { --dw: min(68vw, 26rem); }
-  .hero-inner { padding-top: 6.2rem; }
+  .hero { --dw: min(68vw, 26rem, 34svh); }
+  .hero-inner { padding: 8.6rem 1.25rem calc(var(--dh) + 3.4rem); }
   h1.hi { font-size: clamp(4rem, 22vw, 9rem); }
   .peek { right: 5vw; }
 }
@@ -45,12 +59,13 @@ h1.hi .l2 { position: relative; }
 }
 @media (max-height: 560px) and (min-width: 721px) {
   .hero { --dw: clamp(11rem, 46vh, 22rem); }
-  .hero-inner { padding-top: 6.4rem; }
+  .hero-inner { padding-top: 8rem; }
   h1.hi { font-size: clamp(4rem, 14vw, 11rem); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .js .peekin { transform: none !important; transition: none !important; }
+  .js .peekin, .js.page-ready .peekin { transform: none !important; transition: none !important; }
   .js .keep { opacity: 1 !important; transition: none !important; }
   .squig { clip-path: none !important; transition: none !important; }
+  .pline { opacity: 1 !important; transition: none !important; }
   .peekin.wag .ptail, .peekin.wag .pmarks { animation: none !important; }
 }
