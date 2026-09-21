@@ -15,6 +15,8 @@
 .menubtn { display: none; background: none; border: 2px solid var(--ink); padding: .5rem 1rem; font-weight: 700; font-size: .9rem; cursor: pointer; }
 .site-header.on-hero:not(.solid) .logo img { filter: invert(1); }
 .site-header.on-hero:not(.solid) .nav a, .site-header.on-hero:not(.solid) .menubtn { color: #fff; border-color: #fff; }
+/* over the purple hero the default violet focus ring disappears, so use white there */
+.site-header.on-hero:not(.solid) :focus-visible { outline-color: #fff; }
 .menu { position: fixed; inset: 0; z-index: 70; background: var(--cream); padding: 6rem 1.5rem 2rem; display: none; flex-direction: column; gap: .4rem; }
 .menu.open { display: flex; }
 .menu a { font-family: var(--serif); font-size: 2.6rem; line-height: 1.25; text-decoration: none; }

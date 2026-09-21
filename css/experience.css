@@ -28,7 +28,7 @@
 .resume .cl { fill: var(--lilac); }
 .resume .ar { fill: none; stroke: #FAFAFA; stroke-width: 3.6; stroke-linecap: round; stroke-linejoin: round; }
 .resume span { display: block; line-height: 1.15; }
-.resume b { display: block; color: var(--lilac); font-weight: 700; font-size: calc(18.5 * var(--gpx)); letter-spacing: 0; text-transform: uppercase; }
+.resume b { display: block; color: var(--lilac-text); font-weight: 700; font-size: calc(18.5 * var(--gpx)); letter-spacing: 0; text-transform: uppercase; }
 .resume span span { font-size: calc(15.5 * var(--gpx)); }
 .resume:hover b, .resume:focus-visible b { text-decoration: underline; text-underline-offset: .15em; }
 
@@ -67,4 +67,7 @@
   .notebook { width: calc(100% - 2.6rem); padding-left: 3.2rem; padding-right: .9rem; }
   .rings { width: 3.6rem; }
   .sticky { margin-right: 1.3rem; }
+}
+@media (min-width: 1050px) {
+  .resume b { color: var(--lilac); }
 }

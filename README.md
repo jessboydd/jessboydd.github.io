@@ -62,5 +62,8 @@ To see it again, add `?intro` to the address, e.g. `index.html?intro` or `https:
 ## Script order
 The scripts are plain (not modules) so the site also works when you open `index.html` straight from a folder. Keep the order in `index.html`: data files, then `core.js`, then the sections, then `opening.js` and `init.js`. Shared helpers live on one object, `JB`.
 
+## Search and sharing tags
+`index.html` has a title (kept to 60 characters), description, Open Graph / Twitter tags, a `Person` structured-data block, and `robots.txt` at the root. Once the site has its final address, also add a `<link rel="canonical">`, `og:url`, and an `og:image` (an absolute URL to a 1200x630 image) so shared links show a preview picture. There is a reminder comment in the `<head>`.
+
 ## Publishing
 Upload the whole folder to any static host (Netlify, Vercel, GitHub Pages, or your domain's hosting). Keep the folder structure as is.

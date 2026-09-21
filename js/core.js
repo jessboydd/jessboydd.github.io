@@ -10,8 +10,8 @@ window.JB = window.JB || {};
   JB.esc = function (t) { var d = document.createElement("div"); d.textContent = t; return d.innerHTML; };
   JB.ease = function (t) { return t * t * (3 - 2 * t); };
 
-  /* Point every <img data-a="name"> at its file from js/data/images.js */
-  JB.$$("img[data-a]").forEach(function (i) { i.src = JB.IMG[i.getAttribute("data-a")]; });
+  /* Point every <img data-a="name"> at its file from js/data/images.js (images that already have a src in the HTML keep it) */
+  JB.$$("img[data-a]").forEach(function (i) { if (!i.getAttribute("src")) i.src = JB.IMG[i.getAttribute("data-a")]; });
 
   /* Place the pencil image so its TIP sits at (tipX, tipY), rotated by ang degrees, w px wide */
   JB.TFX = JB.PM.tipx / JB.PM.w; JB.TFY = JB.PM.tipy / JB.PM.h; JB.PR = JB.PM.h / JB.PM.w;

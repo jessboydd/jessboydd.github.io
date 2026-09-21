@@ -18,3 +18,4 @@
 .skip-intro { position: fixed; z-index: 220; left: 50%; bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: none; border: 0; font-family: var(--mono); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--plum); cursor: pointer; display: none; padding: .7rem 1rem; opacity: 0; animation: fadein .4s ease 1s forwards; }
 .intro-on .skip-intro { display: block; }
 .skip-intro:hover { text-decoration: underline; }
+.skip-intro:focus-visible { animation: none; opacity: 1; }

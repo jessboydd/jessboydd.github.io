@@ -9,8 +9,10 @@
 
   /* ---------- opening sequence ---------- */
   var intro = $("#intro"), skipBtn = $("#skipIntro"), fx = $("#fxPen");
-  function finishIntro() { try { localStorage.setItem("jb_intro_seen_v6", "1"); } catch (e) {} html.classList.remove("intro-on"); intro.style.display = "none"; skipBtn.style.display = "none"; fx.style.display = "none"; JB.runScroll(); }
+  function finishIntro() { behind.forEach(function (el) { el.inert = false; }); try { localStorage.setItem("jb_intro_seen_v6", "1"); } catch (e) {} html.classList.remove("intro-on"); intro.style.display = "none"; skipBtn.style.display = "none"; fx.style.display = "none"; JB.runScroll(); }
   if (!html.classList.contains("intro-on")) { requestAnimationFrame(function () { requestAnimationFrame(pageReady); }); return; }
+  /* keep the page behind the intro out of reach of the keyboard and screen readers until it finishes */
+  var behind = $$("#main, #hdr, #menu"); behind.forEach(function (el) { el.inert = true; });
   var skipped = false, canvas = $("#sigc"), dogEl = $("#introDog"), simg = new Image(); simg.src = IMG.sig;
   function decodeAll() {
     var imgs = $$("img", intro).concat([simg, fx]);

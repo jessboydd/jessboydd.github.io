@@ -4,7 +4,7 @@
    ========================================================== */
 :root {
   --cream: #F8F8F4; --ink: #1E1636; --muted: #574F6E;
-  --plum: #3B2A73; --peri: #5B68AB; --lilac: #827AC9; --peri-soft: #AEB7EE; --violet: #6A4FC4; --lav: #E3C6E6; --pink: #F3B8CF; --pink-soft: #EBC9E8;
+  --plum: #3B2A73; --peri: #5B68AB; --lilac: #827AC9; --lilac-text: #6B62B8; --peri-soft: #AEB7EE; --violet: #6A4FC4; --lav: #E3C6E6; --pink: #F3B8CF; --pink-soft: #EBC9E8;
   --yellow: #E8D948; --orange: #DB7A3E; --orange-deep: #C9622A;
   --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --sans: "Figtree", "Helvetica Neue", Arial, sans-serif;
@@ -14,7 +14,6 @@
   /* one "design pixel": the Figma frames are 1016px wide, so 1 unit = 1/1016 of the page width (capped at 1600px). Used by the hero, about, quote and work-experience layouts. */
   --gpx: min(.098425vw, 1.5748px);
   box-sizing: border-box;
-  padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 html { scroll-padding-top: calc(5rem + env(safe-area-inset-top, 0px)); scroll-behavior: smooth; background: var(--cream); color-scheme: light; }
@@ -26,10 +25,10 @@ body::before { content: ""; position: fixed; inset: 0; z-index: 90; pointer-even
 a { color: inherit; }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; border-radius: 3px; }
-.hero :focus-visible, .connect :focus-visible { outline-color: #fff; }
+.hero :focus-visible { outline-color: #fff; }
 .spread { padding-block: clamp(4.5rem, 10vw, 8.5rem); position: relative; }
 .wrap { width: min(100% - 3rem, 72rem); margin-inline: auto; position: relative; }
-.mono { font-family: var(--mono); font-size: .78rem; letter-spacing: .04em; }
+.mono { font-family: var(--mono); font-size: .85rem; letter-spacing: .04em; }
 .label { font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
 .display { font-family: var(--serif); font-weight: 400; letter-spacing: -.03em; line-height: .9; font-size: clamp(3.2rem, 10vw, 9rem); margin: 0; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
