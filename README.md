@@ -14,9 +14,10 @@ css/
   hero.css                 1. Hero (+ the dog on her ledge)
   about.css                2. A Little About Me (+ Polaroids)
   quote.css                3. Orange quote with yellow doodles
-  experience.css           4. Work Experience (notebook + education sticky note)
-  skills.css               5. Skills
-  connect.css              6. Connect + footer
+  projects.css             4. Projects (the workspace: laptop, posts, brand guide, phone + scrolling headings)
+  experience.css           5. Experience (notebook + education sticky note)
+  skills.css               6. Skills
+  connect.css              7. Connect + footer
   links.css                the links page
 js/
   data/
@@ -31,6 +32,7 @@ js/
   opening.js               opening sequence
   init.js                  runs last
 assets/img/                signature, dog layers, pencil, photos, favicon (dog-peek-*.png are used by the links page; the hero dog is dog-peek.png)
+assets/img/projects/       the four project images (Kajabi screen, 3 social posts, LDR guide, LEGO phone)
 assets/Jess-Boyd-Resume.pdf   the file behind "Download Resume"
 ```
 
@@ -42,11 +44,15 @@ Each section in `index.html` has a banner comment naming its CSS and JS files, a
 | Colors, fonts | top of `css/base.css` |
 | Hero text, descriptors | `index.html` → HERO block |
 | Hero dog (size, position, wag) | `css/hero.css` (`.peek`, `--dw`); swap `assets/img/dog-peek.png` |
-| About paragraph, facts, photo captions | `index.html` → ABOUT block (Polaroid positions: `css/about.css`) |
+| Hero supporting line | `index.html` → HERO block |
+| About heading, paragraph, facts, photo captions | `index.html` → ABOUT block (Polaroid positions: `css/about.css`) |
 | Photos | replace files in `assets/img/` (keep names) |
 | The orange quote | `index.html` → THE QUOTE block |
-| Work experience roles, education note | `index.html` → WORK EXPERIENCE block |
+| Experience roles, education note | `index.html` → EXPERIENCE block |
 | Resume file | replace `assets/Jess-Boyd-Resume.pdf` (keep the name) |
+| Projects: names, tags, descriptions | `index.html` → PROJECTS block (each project is one `<article>`) |
+| Projects: image files | replace the files in `assets/img/projects/` (keep the names) |
+| Projects: where things sit on desktop | `css/projects.css` (the `@media (min-width: 1000px)` block) |
 | Skills | `index.html` → SKILLS block |
 | Links page: URLs, titles, order, hide a card | `js/data/links.js` (the header text is in `links/index.html`) |
 | Email, LinkedIn | `index.html` → CONNECT block |

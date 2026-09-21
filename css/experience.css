@@ -1,17 +1,17 @@
 /* ==========================================================
    4. WORK EXPERIENCE
    A spiral notebook page listing the roles (each with a star), a "Download Resume" link, a pink sticky note with
-   education taped to the top right, and a tilted grid panel behind it all. Section: #experience   (no script)
+   education taped to the top right, and a tilted green grid panel behind it all, over a pale yellow-green to peach background. Section: #experience   (no script)
    Desktop (1000px+) follows the 1016px design frame, scaled with --gpx (see base.css).
    Below that the sticky note drops under the notebook.
    ========================================================== */
-.work { position: relative; overflow: hidden; padding: clamp(2.5rem, calc(48 * var(--gpx)), 4.5rem) 0 0; background: linear-gradient(180deg, #CDDFFC 0%, #FBFDFF 100%); }
+.work { position: relative; overflow: hidden; padding: clamp(2.5rem, calc(48 * var(--gpx)), 4.5rem) 0 0; background: linear-gradient(180deg, #E7EF9F 0%, #F0EAB1 26%, #F8E3C0 52%, #F4CFA9 74%, #EEB58D 100%); }
 .work-in { position: relative; width: min(100%, 1600px); margin-inline: auto; padding-bottom: 3rem; }
 
-.gridpanel { position: absolute; z-index: 0; left: calc(300 * var(--gpx)); top: calc(541 * var(--gpx) - 48 * var(--gpx)); width: calc(1100 * var(--gpx)); height: calc(700 * var(--gpx)); rotate: -20.3deg; transform-origin: 0 0; background-color: #A9C2EF;
-  background-image: linear-gradient(to right, #C8D9F7 calc(1.4 * var(--gpx)), transparent calc(1.4 * var(--gpx))), linear-gradient(to bottom, #C8D9F7 calc(1.4 * var(--gpx)), transparent calc(1.4 * var(--gpx))); background-size: calc(19.5 * var(--gpx)) calc(19.5 * var(--gpx)); }
+.gridpanel { position: absolute; z-index: 0; left: calc(300 * var(--gpx)); top: calc(541 * var(--gpx) - 48 * var(--gpx)); width: calc(1100 * var(--gpx)); height: calc(700 * var(--gpx)); rotate: -20.3deg; transform-origin: 0 0; background-color: #B6CC81;
+  background-image: linear-gradient(to right, #CADCA4 calc(1.4 * var(--gpx)), transparent calc(1.4 * var(--gpx))), linear-gradient(to bottom, #CADCA4 calc(1.4 * var(--gpx)), transparent calc(1.4 * var(--gpx))); background-size: calc(19.5 * var(--gpx)) calc(19.5 * var(--gpx)); }
 
-.notebook { position: relative; z-index: 1; margin-left: max(2rem, calc(72 * var(--gpx))); width: min(calc(565 * var(--gpx)), calc(100% - 3rem)); min-height: calc(514 * var(--gpx)); padding: calc(20 * var(--gpx)) calc(10 * var(--gpx)) calc(26 * var(--gpx)) calc(63 * var(--gpx)); background: #FAFAFA; box-shadow: calc(6 * var(--gpx)) calc(6 * var(--gpx)) calc(22 * var(--gpx)) rgba(60,100,190,.2); }
+.notebook { position: relative; z-index: 1; margin-left: max(2rem, calc(72 * var(--gpx))); width: min(calc(565 * var(--gpx)), calc(100% - 3rem)); min-height: calc(514 * var(--gpx)); padding: calc(20 * var(--gpx)) calc(10 * var(--gpx)) calc(26 * var(--gpx)) calc(63 * var(--gpx)); background: #FAFAFA; box-shadow: calc(6 * var(--gpx)) calc(6 * var(--gpx)) calc(22 * var(--gpx)) rgba(120,110,40,.22); }
 .rings { position: absolute; left: calc(-14 * var(--gpx)); top: calc(14 * var(--gpx)); bottom: 0; width: calc(63 * var(--gpx)); background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='85 11 315 223.5'><rect x='310' y='65' width='82' height='117' fill='%232C2C2C'/><g fill='none' stroke='%231c1c1c' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'><path d='M312 105 C230 102 150 108 100 126 C92 132 100 140 130 141 C150 142 162 145 160 150'/><path d='M312 149 C260 148 200 150 160 156'/><path d='M100 160 C96 168 108 178 140 180 C152 181 162 184 160 188'/></g></svg>") 0 0 / 100% calc(44.7 * var(--gpx)) repeat-y; pointer-events: none; }
 
 .notebook h2 { margin: 0; font-family: var(--serif); font-weight: 400; color: #000; font-size: calc(83.8 * var(--gpx)); line-height: 1; letter-spacing: -.005em; }
@@ -34,7 +34,7 @@
 
 /* the pink sticky note, taped at the top right of the notebook */
 .sticky { position: absolute; z-index: 2; left: calc(692 * var(--gpx)); top: calc(17 * var(--gpx)); width: calc(236 * var(--gpx)); padding: calc(52 * var(--gpx)) calc(16 * var(--gpx)) calc(22 * var(--gpx)) calc(20 * var(--gpx)); background: #F6CFD5; color: #000; rotate: 4deg; box-shadow: 0 calc(3 * var(--gpx)) calc(10 * var(--gpx)) rgba(60,60,110,.12); }
-.sticky h3 { margin: 0; font-family: var(--sans); font-weight: 700; font-size: calc(17.2 * var(--gpx)); line-height: 1.2; }
+.sticky h3 { margin: 0; font-family: var(--sans); font-weight: 700; font-size: calc(17.2 * var(--gpx)); line-height: 1.2; white-space: nowrap; }
 .sticky p { margin: calc(3 * var(--gpx)) 0 calc(20 * var(--gpx)); font-size: calc(14.4 * var(--gpx)); line-height: 1.25; }
 .sticky p:last-child { margin-bottom: 0; }
 .tape { position: absolute; left: calc(66 * var(--gpx)); top: calc(-21 * var(--gpx)); width: calc(124 * var(--gpx)); height: calc(42 * var(--gpx)); background: var(--lilac); rotate: .5deg;
@@ -45,8 +45,8 @@
 @media (max-width: 999px) {
   .work { padding-top: 2.5rem; }
   .work-in { display: flex; flex-direction: column; align-items: center; padding-bottom: 3.5rem; }
-  .gridpanel { left: 30%; top: auto; bottom: -8rem; width: 90rem; height: 40rem; rotate: -20.3deg; background-size: 1.2rem 1.2rem; background-image: linear-gradient(to right, #C8D9F7 1.5px, transparent 1.5px), linear-gradient(to bottom, #C8D9F7 1.5px, transparent 1.5px); }
-  .notebook { margin: 0; width: min(calc(100% - 3.2rem), 40rem); min-height: 0; padding: 1.4rem 1.2rem 1.6rem 3.6rem; box-shadow: .4rem .4rem 1.4rem rgba(60,100,190,.2); }
+  .gridpanel { left: 30%; top: auto; bottom: -8rem; width: 90rem; height: 40rem; rotate: -20.3deg; background-size: 1.2rem 1.2rem; background-image: linear-gradient(to right, #CADCA4 1.5px, transparent 1.5px), linear-gradient(to bottom, #CADCA4 1.5px, transparent 1.5px); }
+  .notebook { margin: 0; width: min(calc(100% - 3.2rem), 40rem); min-height: 0; padding: 1.4rem 1.2rem 1.6rem 3.6rem; box-shadow: .4rem .4rem 1.4rem rgba(120,110,40,.22); }
   .rings { left: -.9rem; top: .9rem; width: 4rem; background-size: 100% 2.9rem; }
   .notebook h2 { font-size: clamp(2.9rem, 10.5vw, 5.2rem); }
   .roles { margin-top: 1rem; }
@@ -59,7 +59,7 @@
   .resume b { font-size: 1.05rem; }
   .resume span span { font-size: .9rem; }
   .sticky { position: relative; left: auto; top: auto; z-index: 2; width: min(17.5rem, calc(100% - 3.2rem)); margin-top: 3rem; align-self: flex-end; margin-right: max(1.6rem, calc(50% - 20rem)); padding: 3.2rem 1.2rem 1.4rem 1.4rem; box-shadow: 0 .2rem .8rem rgba(60,60,110,.14); }
-  .sticky h3 { font-size: 1.05rem; }
+  .sticky h3 { font-size: 1.05rem; white-space: normal; }
   .sticky p { font-size: .92rem; margin-bottom: 1.1rem; }
   .tape { left: 34%; top: -1rem; width: 7.5rem; height: 2.4rem; }
 }

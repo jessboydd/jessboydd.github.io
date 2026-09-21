@@ -6,8 +6,8 @@
   menubtn.addEventListener("click", function () { setMenu(!menu.classList.contains("open")); });
   menu.addEventListener("click", function (e) { if (e.target.tagName === "A") setMenu(false); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && menu.classList.contains("open")) { setMenu(false); menubtn.focus(); } });
-  window.addEventListener("resize", function () { if (window.innerWidth > 760 && menu.classList.contains("open")) setMenu(false); });
-  var navLinks = $$("#nav a"), secs = ["about", "quote", "experience", "skills", "connect"].map(function (id) { return document.getElementById(id); });
+  window.addEventListener("resize", function () { if (window.innerWidth > 900 && menu.classList.contains("open")) setMenu(false); });
+  var navLinks = $$("#nav a"), secs = ["about", "quote", "projects", "experience", "skills", "connect"].map(function (id) { return document.getElementById(id); });
   function curSection() {
     var y = window.innerHeight * 0.4, cur = null;
     secs.forEach(function (s) { if (s.getBoundingClientRect().top <= y) cur = s.id; });

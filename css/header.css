@@ -21,7 +21,7 @@
 .menu.open { display: flex; }
 .menu a { font-family: var(--serif); font-size: 2.6rem; line-height: 1.25; text-decoration: none; }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .nav { display: none; }
   .menubtn { display: block; }
 }
