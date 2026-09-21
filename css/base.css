@@ -8,7 +8,6 @@
   --yellow: #E8D948; --orange: #DB7A3E; --orange-deep: #C9622A;
   --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --sans: "Figtree", "Helvetica Neue", Arial, sans-serif;
-  --mono: "Space Mono", "Courier New", monospace;
   --script: "Nothing You Could Do", "Bradley Hand", "Segoe Print", cursive;
   --bar: 4.6rem;
   /* one "design pixel": the Figma frames are 1016px wide, so 1 unit = 1/1016 of the page width (capped at 1600px). Used by the hero, about, quote and work-experience layouts. */
@@ -28,8 +27,8 @@ button { font: inherit; color: inherit; }
 .hero :focus-visible { outline-color: #fff; }
 .spread { padding-block: clamp(4.5rem, 10vw, 8.5rem); position: relative; }
 .wrap { width: min(100% - 3rem, 72rem); margin-inline: auto; position: relative; }
-.mono { font-family: var(--mono); font-size: .85rem; letter-spacing: .04em; }
-.label { font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+.mono { font-family: var(--sans); font-size: .85rem; letter-spacing: .04em; }
+.label { font-family: var(--sans); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
 .display { font-family: var(--serif); font-weight: 400; letter-spacing: -.03em; line-height: .9; font-size: clamp(3.2rem, 10vw, 9rem); margin: 0; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skiplink { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--cream); padding: .7rem 1rem; z-index: 300; }

@@ -3,13 +3,13 @@
    Four-column bulleted skills list. The heading is the same size as the Experience heading. Section: #skills   (no script)
    ========================================================== */
 .skills-spread { padding-top: clamp(3.5rem, 7vw, 6rem); }
-.skills-spread h2 { margin: 0 0 clamp(2rem, 4vw, 3.4rem); font-family: var(--serif); font-weight: 400; font-size: clamp(2.9rem, 10.5vw, 5.2rem); line-height: 1; letter-spacing: -.005em; color: var(--peri); }
-/* the exact size the Experience heading uses (see .notebook h2 in experience.css) */
+.skills-spread h2 { margin: 0 0 clamp(2rem, 4vw, 3.4rem); font-family: var(--serif); font-weight: 400; font-size: clamp(2.9rem, 10.5vw, 5.2rem); line-height: 1; letter-spacing: -.005em; color: var(--lilac); }
+/* the exact size the Experience heading uses (see .notebook h2 in experience.css); same purple as the About heading */
 @media (min-width: 1000px) {
   .skills-spread h2 { font-size: calc(83.8 * var(--gpx)); }
 }
 .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4rem clamp(1.4rem, 3vw, 3rem); }
-.skills h3 { margin: 0 0 .9rem; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.55rem; line-height: 1.1; letter-spacing: -.01em; color: var(--violet); }
+.skills h3 { margin: 0 0 .9rem; font-family: var(--sans); font-style: normal; font-weight: 700; font-size: 28px; line-height: 1.15; letter-spacing: 0; color: var(--violet); }
 .skills ul { margin: 0; padding: 0 0 0 1.15rem; list-style: disc; display: grid; gap: .55rem; }
 .skills li { padding-left: .2rem; line-height: 1.4; font-weight: 500; }
 .skills li::marker { color: var(--violet); }
