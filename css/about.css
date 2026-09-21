@@ -7,7 +7,7 @@
    Below that it stacks: text first, then the photo cluster, which scales with its own width.
    ========================================================== */
 .about { position: relative; padding: 0; background: var(--cream); }
-.about-in { position: relative; width: min(100%, 1600px); margin-inline: auto; padding: clamp(3.5rem, calc(50 * var(--gpx)), 5.5rem) 1.5rem 4rem; }
+.about-in { position: relative; width: min(100%, 1600px); margin-inline: auto; padding: clamp(4.25rem, calc(62 * var(--gpx)), 6.25rem) 1.5rem 4rem; }
 .about h2 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(2.2rem, 8.6vw, 5rem); line-height: .78; letter-spacing: -.005em; color: var(--lilac); }
 .atext { margin-top: 1.6rem; }
 .atext p { margin: 0; color: #000; font-size: 1.0625rem; line-height: 1.5; max-width: 36rem; }
@@ -35,13 +35,13 @@
 .pol.dogs figcaption { position: absolute; left: 0; right: 0; top: calc(100% + 3 * var(--px)); font-size: calc(17 * var(--px)); }
 
 @media (min-width: 1000px) {
-  .about-in { min-height: calc(571 * var(--gpx)); padding: calc(19 * var(--gpx)) 0 calc(48 * var(--gpx)) calc(54 * var(--gpx)); }
+  .about-in { min-height: calc(588 * var(--gpx)); padding: calc(36 * var(--gpx)) 0 calc(48 * var(--gpx)) calc(54 * var(--gpx)); }
   .about h2 { font-size: calc(75 * var(--gpx)); }
   .atext { margin-top: calc(22 * var(--gpx)); width: calc(408 * var(--gpx)); }
   .atext p { font-size: max(.9375rem, calc(15 * var(--gpx))); line-height: 1.25; max-width: none; }
   .facts { margin-top: calc(24 * var(--gpx)); width: calc(400 * var(--gpx)); gap: calc(15 * var(--gpx)); }
   .facts dd { margin-top: calc(1 * var(--gpx)); font-size: max(.9375rem, calc(14.2 * var(--gpx))); line-height: 1.2; }
-  .cluster { position: absolute; left: calc(452 * var(--gpx)); top: calc(106 * var(--gpx)); width: calc(535 * var(--gpx)); margin: 0; }
+  .cluster { position: absolute; left: calc(452 * var(--gpx)); top: calc(123 * var(--gpx)); width: calc(535 * var(--gpx)); margin: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .pol { transition: none; }
