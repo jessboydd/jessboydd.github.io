@@ -28,8 +28,7 @@
 .resume .cl { fill: var(--lilac); }
 .resume .ar { fill: none; stroke: #FAFAFA; stroke-width: 3.6; stroke-linecap: round; stroke-linejoin: round; }
 .resume span { display: block; line-height: 1.15; }
-.resume b { display: block; color: var(--lilac-text); font-weight: 700; font-size: calc(18.5 * var(--gpx)); letter-spacing: 0; text-transform: uppercase; }
-.resume span span { font-size: calc(15.5 * var(--gpx)); }
+.resume b { display: block; color: var(--lilac-text); font-weight: 700; font-size: calc(18.5 * var(--gpx)); letter-spacing: 0; }
 .resume:hover b, .resume:focus-visible b { text-decoration: underline; text-underline-offset: .15em; }
 
 /* the pink sticky note, taped at the top right of the notebook */
@@ -57,7 +56,6 @@
   .resume { margin: 1rem 0 0; }
   .resume svg { width: 2.6rem; height: 2.4rem; }
   .resume b { font-size: 1.05rem; }
-  .resume span span { font-size: .9rem; }
   .sticky { position: relative; left: auto; top: auto; z-index: 2; width: min(17.5rem, calc(100% - 3.2rem)); margin-top: 3rem; align-self: flex-end; margin-right: max(1.6rem, calc(50% - 20rem)); padding: 3.2rem 1.2rem 1.4rem 1.4rem; box-shadow: 0 .2rem .8rem rgba(60,60,110,.14); }
   .sticky h3 { font-size: 1.05rem; white-space: normal; }
   .sticky p { font-size: .92rem; margin-bottom: 1.1rem; }
