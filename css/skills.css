@@ -3,8 +3,8 @@
    Four-column bulleted skills list. The heading is the same size as the Experience heading. Section: #skills   (no script)
    ========================================================== */
 .skills-spread { padding-top: clamp(3.5rem, 7vw, 6rem); }
-.skills-spread h2 { margin: 0 0 clamp(2rem, 4vw, 3.4rem); font-family: var(--serif); font-weight: 400; font-size: clamp(2.9rem, 10.5vw, 5.2rem); line-height: 1; letter-spacing: -.005em; color: var(--peri); }
-/* the exact size the Experience heading uses (see .notebook h2 in experience.css) */
+.skills-spread h2 { margin: 0 0 clamp(2rem, 4vw, 3.4rem); font-family: var(--serif); font-weight: 400; font-size: clamp(2.9rem, 10.5vw, 5.2rem); line-height: 1; letter-spacing: -.005em; color: var(--lilac); }
+/* the exact size the Experience heading uses (see .notebook h2 in experience.css); same purple as the About heading */
 @media (min-width: 1000px) {
   .skills-spread h2 { font-size: calc(83.8 * var(--gpx)); }
 }
