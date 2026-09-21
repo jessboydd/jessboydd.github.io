@@ -4,6 +4,7 @@ A static site: no build step, no dependencies. Every section has its own CSS fil
 
 ```
 index.html                 all page content, in clearly marked section blocks
+links/index.html           the Linktree-style links page (yoursite.com/links/)
 css/
   base.css                 colors, fonts, page reset, layout helpers (edit colors here)
   effects.css              shared hand-drawn marks, notes, highlighter, scroll-reveal
@@ -17,15 +18,18 @@ css/
   experience.css           5. Experience (folders)
   education.css            6. Education + Skills
   connect.css              7. Connect + footer
+  links.css                the links page
 js/
   data/
     experience.js          your roles, exact resume text  <- edit content here
+    links.js               every link on the links page: title, URL, look, order, visibility  <- edit here
     images.js              image file paths
     signature-path.js      pen path for the signature animation (generated, don't edit)
     pencil.js              pencil size/tip data (don't edit)
   core.js                  shared helpers (scroll + page-ready hooks)
   effects.js               notes, arrows, reveal on scroll
   header.js  hero.js  about.js  common-thread.js  experience.js  connect.js
+  links-render.js  links.js   build the link cards from data/links.js; the dog's wag
   opening.js               opening sequence
   init.js                  runs last
 assets/img/                signature, dog layers, pencil, photos, favicon
@@ -46,6 +50,7 @@ Each section in `index.html` has a banner comment naming its CSS and JS files, a
 | Experience roles and bullets | `js/data/experience.js` |
 | Education, skills | `index.html` → EDUCATION / SKILLS blocks |
 | Email, LinkedIn | `index.html` → CONNECT block |
+| Links page: URLs, titles, order, hide a card | `js/data/links.js` (the header text is in `links/index.html`) |
 | Adding a new section | add a block to `index.html`, a new `css/…css` file (add a `<link>`), and optionally a `js/…js` file (add a `<script>` before `opening.js`) |
 
 ## Preview
