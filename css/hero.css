@@ -6,15 +6,14 @@
    ========================================================== */
 .hero { --dw: clamp(15rem, calc(333 * var(--gpx)), 36rem); --dh: calc(var(--dw) * .98); position: relative; z-index: 5; min-height: 100vh; min-height: 100svh; color: #fff; display: flex; flex-direction: column;
   background: #6A63A4; }
-.hero-inner { position: relative; z-index: 3; flex: 1; display: flex; flex-direction: column; width: 100%; padding: clamp(7.4rem, calc(104 * var(--gpx)), 15rem) clamp(1.25rem, 5vw, 4.5rem) 2.5rem clamp(1.5rem, calc(116 * var(--gpx)), 12rem); }
+.hero-inner { position: relative; z-index: 3; flex: 1; display: flex; flex-direction: column; width: 100%; padding: clamp(7.4rem, calc(118 * var(--gpx)), 15rem) clamp(1.25rem, 5vw, 4.5rem) 2.5rem clamp(1.5rem, calc(116 * var(--gpx)), 12rem); }
 h1.hi { margin: 0; font-family: var(--serif); font-weight: 400; color: #E5C4E2; font-size: calc(151 * var(--gpx)); line-height: .78; letter-spacing: -.01em; max-width: 4.7em; }
 h1.hi .l { display: inline-block; white-space: nowrap; }
 h1.hi .l2 { position: relative; }
 .squig { position: absolute; left: 5.4%; bottom: -.2em; width: 64%; height: .2em; overflow: visible; color: #E5C4E2; filter: url(#rough); pointer-events: none; clip-path: inset(-25% 100% -25% 0); transition: clip-path 1.05s cubic-bezier(.5,.1,.2,1) .8s; }
 .squig path { fill: currentColor; }
 .page-ready .squig { clip-path: inset(-25% -2% -25% 0); }
-.sub { margin: calc(46 * var(--gpx)) 0 0; max-width: 17em; font-weight: 600; font-size: max(1.15rem, calc(20.3 * var(--gpx))); line-height: 1.18; letter-spacing: 0; }
-.descr { list-style: none; margin: calc(14 * var(--gpx)) 0 0; padding: 0; font-size: max(.85rem, calc(14 * var(--gpx))); letter-spacing: .02em; text-transform: uppercase; font-weight: 400; line-height: 1.6; }
+.sub { margin: calc(44 * var(--gpx)) 0 0; font-weight: 600; font-size: max(1.15rem, calc(24.3 * var(--gpx))); line-height: 1.18; letter-spacing: 0; }
 .keep { position: absolute; z-index: 4; left: clamp(1.25rem, 5vw, 4.5rem); bottom: 2rem; display: flex; align-items: center; gap: .4rem; color: #fff; pointer-events: none; }
 .js .keep { opacity: 0; }
 .js.page-ready .keep { opacity: var(--kop, 1); transition: opacity .5s ease .9s; }
@@ -43,8 +42,7 @@ h1.hi .l2 { position: relative; }
   .peek { right: 7vw; }
   h1.hi { font-size: clamp(4.4rem, 16vw, 11rem); line-height: .86; }
   .sub { font-size: clamp(1.15rem, 2.6vw, 1.5rem); margin-top: 2.4rem; }
-  .descr { font-size: .85rem; margin-top: 1.4rem; }
-}
+  }
 @media (max-width: 720px) {
   .hero { --dw: min(62vw, 24rem, 30svh); }
   .hero-inner { padding: 8.6rem 1.25rem calc(var(--dh) * .92 + 2rem); }
