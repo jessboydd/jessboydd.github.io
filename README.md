@@ -4,6 +4,7 @@ A static site: no build step, no dependencies. Every section has its own CSS fil
 
 ```
 index.html                 all page content, in clearly marked section blocks
+links/index.html           the Linktree-style links page (yoursite.com/links/)
 css/
   base.css                 colors, fonts, page reset, layout helpers (edit colors here)
   effects.css              shared hand-drawn marks, notes, highlighter, scroll-reveal
@@ -16,17 +17,20 @@ css/
   experience.css           4. Work Experience (notebook + education sticky note)
   skills.css               5. Skills
   connect.css              6. Connect + footer
+  links.css                the links page
 js/
   data/
+    links.js               every link on the links page: title, URL, look, order, visibility  <- edit here
     images.js              image file paths
     signature-path.js      pen path for the signature animation (generated, don't edit)
     pencil.js              pencil size/tip data (don't edit)
   core.js                  shared helpers (scroll + page-ready hooks)
   effects.js               notes, arrows, reveal on scroll
   header.js  hero.js  about.js  connect.js
+  links-render.js  links.js   build the link cards from data/links.js; the dog's wag
   opening.js               opening sequence
   init.js                  runs last
-assets/img/                signature, dog layers, pencil, photos, favicon
+assets/img/                signature, dog layers, pencil, photos, favicon (dog-peek-*.png are used by the links page; the hero dog is dog-peek.png)
 assets/Jess-Boyd-Resume.pdf   the file behind "Download Resume"
 ```
 
@@ -44,6 +48,7 @@ Each section in `index.html` has a banner comment naming its CSS and JS files, a
 | Work experience roles, education note | `index.html` → WORK EXPERIENCE block |
 | Resume file | replace `assets/Jess-Boyd-Resume.pdf` (keep the name) |
 | Skills | `index.html` → SKILLS block |
+| Links page: URLs, titles, order, hide a card | `js/data/links.js` (the header text is in `links/index.html`) |
 | Email, LinkedIn | `index.html` → CONNECT block |
 | Adding a new section | add a block to `index.html`, a new `css/…css` file (add a `<link>`), and optionally a `js/…js` file (add a `<script>` before `opening.js`) |
 

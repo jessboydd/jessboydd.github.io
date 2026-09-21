@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#6A61AC">
+<title>Jess Boyd — Links</title>
+<meta name="description" content="Jess Boyd: creative project coordinator and product innovation student. Portfolio, LinkedIn, resume, and email.">
+<meta property="og:title" content="Jess Boyd — Links">
+<meta property="og:description" content="A little corner of the internet for what I’m making, learning, and working on.">
+<script>
+/* mark JS on, and make sure the entrance can never leave the page hidden */
+(function () {
+  var d = document.documentElement; d.classList.add('js');
+  setTimeout(function () { d.classList.add('page-ready'); }, 2500);
+})();
+</script>
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Nothing+You+Could+Do&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- Same design system as the portfolio: base (colors, fonts) + effects (marks, notes, stars), then this page's own file. -->
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/effects.css">
+<link rel="stylesheet" href="../css/links.css">
+</head>
+<body class="links-page">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2"/></filter></svg>
+
+<div class="page">
+  <div class="scrap" aria-hidden="true"></div>
+
+  <main class="stack" id="main">
+    <!-- HEADER — who this is, in a few seconds -->
+    <header class="masthead">
+      <img class="sig enter" style="--d:0" data-a="sig" alt="">
+      <h1 class="hi enter" style="--d:0"><span class="l">Hi, I’m</span> <span class="l l2">Jess Boyd<svg class="squig" viewBox="0 0 400 46" preserveAspectRatio="none" aria-hidden="true"><path d="M4 31 C 34 27, 70 27, 110 23 S 190 19, 236 15 S 330 10, 391 7 C 396 7, 399 10, 394 13 C 336 19, 282 23, 226 27 S 120 34, 70 35 C 40 36, 14 37, 4 31 Z"/><path d="M52 41 C 92 39, 132 38, 180 35 C 183 36, 181 38, 177 39 C 132 42, 92 43, 52 43 C 47 43, 47 41, 52 41 Z"/></svg></span></h1>
+      <ul class="descr enter" style="--d:1"><li>Project Coordinator</li><li>Product Innovation Student</li><li>Creative at Heart</li></ul>
+      <p class="sub enter" style="--d:2">A little corner of the internet for what I’m <span class="hl" data-draw>making, learning,</span> and working on.</p>
+      <div class="startnote enter" style="--d:2" aria-hidden="true"><span class="script" data-draw>start here</span><span class="arrow" data-arrow="down"></span></div>
+    </header>
+
+    <!-- LINKS — built from js/data/links.js -->
+    <nav aria-label="Jess’s links">
+      <ul class="cards" id="links"></ul>
+      <noscript>
+        <!-- fallback only (no JavaScript). Keep in sync with js/data/links.js -->
+        <ul class="cards">
+          <li class="slot span-2"><a class="card card--sticky card--primary" href="../"><span class="ctitle">Explore my portfolio</span><span class="cdesc">Projects, design, ideas + the work behind them.</span></a></li>
+          <li class="slot"><a class="card card--notebook card--half" href="https://www.linkedin.com/in/jessica-b-238604137/"><span class="ctitle">LinkedIn</span><span class="cdesc">Let’s connect professionally.</span></a></li>
+          <li class="slot"><a class="card card--grid card--half" href="../assets/Jess-Boyd-Resume.pdf"><span class="ctitle">Resume</span><span class="cdesc">Experience, education + skills.</span></a></li>
+          <li class="slot span-2"><a class="card card--orange card--wide" href="mailto:connect.jessboyd@gmail.com"><span class="ctitle">Email me</span><span class="cdesc">Say hi or reach out about working together.</span></a></li>
+        </ul>
+      </noscript>
+    </nav>
+
+    <footer class="foot enter" style="--d:8">
+      <p class="script" data-draw>thanks for stopping by :)</p>
+      <p class="mono">Louisiana roots → Northwest Arkansas</p>
+    </footer>
+  </main>
+</div>
+
+<!-- Scripts: data first, then core, then this page. The renderer goes before core.js so the images and arrows it creates get set up. -->
+<script src="../js/data/images.js"></script>
+<script src="../js/data/pencil.js"></script>
+<script src="../js/data/links.js"></script>
+<script>
+/* this page lives one folder down, so point the shared image paths back up */
+(function (JB) { Object.keys(JB.IMG).forEach(function (k) { JB.IMG[k] = "../" + JB.IMG[k]; }); })(window.JB);
+</script>
+<script src="../js/links-render.js"></script>
+<script src="../js/core.js"></script>
+<script src="../js/effects.js"></script>
+<script src="../js/links.js"></script>
+</body>
+</html>
