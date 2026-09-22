@@ -69,7 +69,9 @@ To see it again, add `?intro` to the address, e.g. `index.html?intro` or `https:
 The scripts are plain (not modules) so the site also works when you open `index.html` straight from a folder. Keep the order in `index.html`: data files, then `core.js`, then the sections, then `opening.js` and `init.js`. Shared helpers live on one object, `JB`.
 
 ## Search and sharing tags
-`index.html` has a title (kept to 60 characters), description, Open Graph / Twitter tags, a `Person` structured-data block, and `robots.txt` at the root. Once the site has its final address, also add a `<link rel="canonical">`, `og:url`, and an `og:image` (an absolute URL to a 1200x630 image) so shared links show a preview picture. There is a reminder comment in the `<head>`.
+`index.html` has a title (kept to 60 characters), description, Open Graph / Twitter tags, a `Person` structured-data block, `robots.txt` at the root, a canonical link, and a share preview image.
+
+The preview picture (`assets/img/og-image.jpg`, 1200x630) is what shows up when the link is pasted into iMessage, Slack, Teams, LinkedIn, etc. It's built from the same purple hero background, the hand-drawn dog, the signature and the headline. If the site ever moves to a different address, update `og:url`, `og:image`, `twitter:image` and the canonical link in `index.html` to match — sharing apps also cache the preview for a while, so a changed image can take time to show up everywhere.
 
 ## Publishing
 Upload the whole folder to any static host (Netlify, Vercel, GitHub Pages, or your domain's hosting). Keep the folder structure as is.
