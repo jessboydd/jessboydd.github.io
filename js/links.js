@@ -1,19 +1,23 @@
-/* Links page behaviour: the dog's tail wag, then kicks off the page-ready entrance.
-   Runs last (after effects.js). Cards themselves are built by js/links-render.js. */
+/* Links page behaviour: the dog's tail wag (hover-near on desktop, tap on touch, once when it scrolls into view),
+   then kicks off the shared reveal/handwriting system. Runs last, after effects.js. */
 (function (JB) {
-  var peekIn = JB.$("#peekIn");
-
-  if (peekIn) {
-    var timed = false;
-    var wagOnce = function (ms) {
-      if (JB.reduce) return;
-      peekIn.classList.add("wag"); timed = true;
-      setTimeout(function () { peekIn.classList.remove("wag"); timed = false; }, ms || 1500);
-    };
-    peekIn.addEventListener("click", function () { wagOnce(1500); });
-    /* one hello wag after the dog has popped up */
-    JB.onReady(function () { setTimeout(function () { wagOnce(1600); }, 2100); });
+  var dog = JB.$("#linksDog"), reduce = JB.reduce;
+  if (dog) {
+    function wagFor(ms) { dog.classList.add("wag"); setTimeout(function () { dog.classList.remove("wag"); }, ms || 1600); }
+    dog.addEventListener("click", function () { wagFor(1500); });
+    if (!reduce) {
+      window.addEventListener("pointermove", function (e) {
+        var r = dog.getBoundingClientRect(), dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        dog.classList.toggle("wag", Math.hypot(dx, dy) < 170);
+      }, { passive: true });
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (es, o) {
+          es.forEach(function (en) { if (en.isIntersecting) { setTimeout(function () { wagFor(1700); }, 350); o.disconnect(); } });
+        }, { threshold: 0.7 }).observe(dog);
+      }
+    }
   }
 
+  /* no opening intro on this page, so start the reveal/handwriting system right away */
   JB.pageReady();
 })(window.JB);

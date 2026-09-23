@@ -1,175 +1,108 @@
 /* ==========================================================
    LINKS PAGE  (links/index.html)
-   A small, condensed version of the portfolio: lavender hero colors, paper cards, the peeking dog.
-   Uses tokens from base.css and the marks/stars/notes from effects.css. Script: js/links-render.js + js/links.js
-   Cards are built from js/data/links.js.
+   A condensed calling-card version of the portfolio: signature, Polaroid portrait, name, four sticky-note
+   link buttons, and the hero's peeking dog perched on the bottom strip. Matches an approved mockup —
+   see links/index.html for the markup. Uses colors/fonts from base.css, handwriting/star/reveal from effects.css.
    ========================================================== */
-html { background: #6A61AC; }
 .links-page {
-  --paper: #FFFCF3; --pink-paper: #F8D2E2; --sky: #CADDFB; --tape: #8677D0;
-  --hole: #645BA6;
-  --shadow: 0 .45rem 1.1rem rgba(24,14,58,.3), 0 .1rem .25rem rgba(24,14,58,.34);
-  --shadow-up: 0 .9rem 1.7rem rgba(24,14,58,.34), 0 .2rem .4rem rgba(24,14,58,.3);
-  --dw: clamp(9rem, 42vw, 13rem);
+  /* colors sampled from the approved mockup that don't already exist in base.css, scoped to this page only */
+  --btn-portfolio: #FFA32A; --btn-resume: #A4BD6A; --btn-linkedin: #6CC7F4; --btn-email: #E67E22;
+  --stack-max: 26rem;
   background: #6A61AC; -webkit-tap-highlight-color: transparent;
 }
 .links-page :focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
 
-.page { position: relative; min-height: 100vh; min-height: 100svh; overflow: clip; color: #fff; padding: 1.9rem 1.25rem 3.2rem;
-  background: radial-gradient(60% 40% at 82% 4%, rgba(150,138,206,.42), transparent 70%), linear-gradient(180deg, #645BA6 0%, #6A61AC 58%, #756CB3 100%); }
-.stack { position: relative; z-index: 1; width: 100%; max-width: 34rem; margin-inline: auto; }
+.page { position: relative; overflow: clip; color: #fff;
+  background: radial-gradient(60% 55% at 78% 18%, rgba(150,138,206,.42), transparent 70%), linear-gradient(180deg, #645BA6 0%, #6A61AC 58%, #756CB3 100%); }
+/* side margins match the approved mockup's proportions (content sits in roughly the middle 68% of the width) */
+.stack { width: 100%; max-width: var(--stack-max); margin-inline: auto; padding: 2.2rem clamp(2.2rem, 15vw, 3.8rem) 0; }
 
-/* a scrap of blue grid paper poking in from the corner, like the one under the portfolio's notebook */
-.scrap { position: absolute; z-index: 0; right: -6rem; bottom: 9.6rem; width: 14rem; height: 9rem; rotate: -12deg; border-radius: 4px; opacity: .9;
-  background-color: #A9C3F0; background-image: linear-gradient(rgba(255,255,255,.55) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.55) 1px, transparent 1px); background-size: 1.1rem 1.1rem; }
-
-/* ---------- entrance: header, then portfolio, then the rest ---------- */
-.js .enter { opacity: 0; transform: translateY(14px); }
-.js.page-ready .enter { opacity: 1; transform: none; transition: opacity .55s ease, transform .6s cubic-bezier(.2,.75,.25,1); transition-delay: calc(var(--d, 0) * 75ms); }
-
-/* ---------- header ---------- */
-.masthead { position: relative; }
-.sig { position: absolute; z-index: 1; top: -.5rem; right: .3rem; width: clamp(4.6rem, 22vw, 6.6rem); height: auto; rotate: 5deg; filter: invert(1); pointer-events: none; }
-h1.hi { margin: 0; font-family: var(--serif); font-weight: 400; color: var(--pink-soft); font-size: clamp(3.8rem, 19vw, 6.6rem); line-height: .88; letter-spacing: -.035em; }
-h1.hi .l { display: block; width: fit-content; white-space: nowrap; }
-h1.hi .l2 { position: relative; }
-.squig { position: absolute; left: 1%; bottom: -.2em; width: 102%; height: .36em; overflow: visible; color: var(--pink-soft); filter: url(#rough); pointer-events: none; clip-path: inset(-25% 100% -25% 0); transition: clip-path 1.05s cubic-bezier(.5,.1,.2,1) .5s; }
-.squig path { fill: currentColor; }
-.page-ready .squig { clip-path: inset(-25% -2% -25% 0); }
-.descr { list-style: none; margin: 1.5rem 0 0; padding: 0; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; line-height: 1.9; }
-.descr li { white-space: nowrap; }
-.sub { margin: .9rem 0 0; max-width: 24rem; font-weight: 500; font-size: 1.1rem; line-height: 1.4; letter-spacing: -.005em; }
-.sub .hl { color: var(--ink); }
-.startnote { display: flex; align-items: flex-start; justify-content: flex-end; gap: .35rem; margin: .7rem 3.6rem 1.1rem 0; }
-.startnote .script, .startnote .arrow { color: #fff; }
-.startnote .script { font-size: 1.25rem; padding-top: .3rem; rotate: -4deg; }
-.startnote .arrow path { stroke-width: 3; }
-
-/* ---------- cards ---------- */
-.cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.15rem 1rem; }
-.slot { position: relative; min-width: 0; }
-.slot.span-2 { grid-column: 1 / -1; }
-.slot.has-dog { margin-top: calc(var(--dw) * .736 + .1rem); }
-
-.card { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; color: var(--ink); text-decoration: none; border-radius: 3px; box-shadow: var(--shadow);
-  padding: 1.1rem 1rem 1rem 1.1rem; rotate: var(--r, 0deg);
-  transition: rotate .4s cubic-bezier(.3,1.4,.5,1), translate .4s cubic-bezier(.3,1.4,.5,1), scale .2s ease, box-shadow .3s ease; }
-/* a little paper grain, same as the Polaroids */
-.card::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: .5; mix-blend-mode: multiply;
+/* ---------- photo: logo, Polaroid + tape, camera + sticker backing — scaled together with container-query
+   units so proportions hold at any width ---------- */
+.portrait-wrap { position: relative; container-type: inline-size; width: 100%; aspect-ratio: 100 / 87; }
+.sig { position: absolute; z-index: 3; top: 0; left: 0; width: 25cqw; height: auto; rotate: -4deg; filter: invert(1); }
+.polaroid { position: absolute; right: 0; top: 9cqw; z-index: 2; margin: 0; width: 68cqw; padding: 3.1cqw 3.1cqw 3.5cqw; background: #FFFCF3; rotate: 2deg;
+  box-shadow: 0 1.4cqw 2.6cqw rgba(24,14,58,.32), 0 .3cqw .6cqw rgba(24,14,58,.28); }
+.polaroid img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 30%; }
+.polaroid::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .45; mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .45  0 0 0 0 .35  0 0 0 .25 0'/></filter><rect width='100%' height='100%' filter='url(%23p)'/></svg>"); }
+/* the tape: a real cut-paper-tape graphic (assets/img/tape.png), centered right on the photo's top-right corner —
+   .tape is a child of .polaroid, so 100%/0% here is that corner, and translate -50%/-50% centers the tape on it
+   regardless of the rotation — about half the tape lands on the photo, half off it */
+.tape { position: absolute; z-index: 3; left: 100%; top: 0%; width: 26cqw; aspect-ratio: 166 / 130; translate: -50% -50%; rotate: 22deg;
+  background: url("../assets/img/tape.png") 0 0 / 100% 100% no-repeat; filter: drop-shadow(0 .3cqw .5cqw rgba(24,14,58,.22)); }
+/* the camera doodle (its own cream sticker backing is baked into the artwork) sits a little forward of the
+   photo, so it renders above the Polaroid where the two overlap */
+.camera { position: absolute; z-index: 3; left: -3cqw; bottom: 14cqw; width: 38cqw; height: auto; rotate: -14deg; pointer-events: none;
+  filter: drop-shadow(0 .5cqw 1cqw rgba(24,14,58,.22)); }
 
-.ctitle { display: block; width: fit-content; max-width: 100%; font-family: var(--serif); font-weight: 400; font-size: clamp(1.75rem, 8vw, 2.25rem); line-height: .98; letter-spacing: -.03em;
-  background: linear-gradient(currentColor, currentColor) 0 100% / 0% 2px no-repeat; padding-bottom: .1em; transition: background-size .3s ease; }
-.cdesc { display: block; margin-top: .55rem; font-weight: 500; font-size: .95rem; line-height: 1.35; }
-.cdetail { display: block; margin-top: .7rem; font-weight: 700; font-size: .78rem; overflow-wrap: anywhere; }
-.cfoot { margin-top: auto; padding-top: 1rem; display: flex; align-items: flex-end; justify-content: space-between; gap: .5rem; }
-.icon { flex: none; fill: none; stroke: var(--ink); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; filter: url(#rough); }
-.icon circle { fill: var(--ink); stroke-width: 2.4; }
-.go { margin-left: auto; font-family: var(--sans); font-weight: 600; font-size: 1.4rem; line-height: 1; transition: translate .3s cubic-bezier(.3,1.5,.5,1); }
-.go.arrow { font-size: 0; }
+/* ---------- name + role ---------- */
+.idcard { margin-top: 1.4rem; text-align: center; }
+.bigname { margin: 0; font-family: var(--serif); font-weight: 400; color: var(--pink-soft); font-size: clamp(4rem, 19vw, 6rem); line-height: .92; letter-spacing: -.02em; }
+.roles { list-style: none; margin: .7rem 0 0; padding: 0; display: grid; gap: .1rem; }
+.roles li { font-family: var(--sans); font-weight: 800; font-size: clamp(.88rem, 3.7vw, 1.05rem); line-height: 1.4; }
 
-/* paper variants */
-.card--sticky { background: var(--pink-paper); padding: 1.9rem 1.4rem 1.2rem; }
-.card--notebook { background-color: var(--paper); padding-left: 2.5rem;
-  background-image: linear-gradient(90deg, transparent 1.95rem, rgba(226,96,122,.5) 1.95rem, rgba(226,96,122,.5) calc(1.95rem + 1.5px), transparent calc(1.95rem + 1.5px)),
-    repeating-linear-gradient(180deg, transparent 0 1.45rem, rgba(104,146,222,.32) 1.45rem calc(1.45rem + 1px)); background-position: 0 0, 0 .6rem; }
-.card--notebook::before { content: ""; position: absolute; left: .5rem; top: .8rem; bottom: .8rem; width: .8rem; pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, var(--hole) 0 .27rem, rgba(20,10,50,.35) .3rem .36rem, transparent .4rem) 0 0 / 100% 3.9rem repeat-y; }
-.card--grid { background-color: var(--sky); padding-top: 1.5rem;
-  background-image: linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.7) 1px, transparent 1px); background-size: 1.1rem 1.1rem; }
-.card--orange { background: linear-gradient(175deg, #EAA151 0%, #DF8443 55%, #D9773F 100%); padding: 1.3rem 1.4rem 1.2rem; border-radius: 6px; }
-.card--lavender { background: var(--peri-soft); padding: 1.3rem 1.4rem 1.2rem; border-radius: 6px; }
+/* ---------- buttons: the real hand-painted button graphics (assets/img/btn-*.png), one per color ---------- */
+.linklist { list-style: none; margin: 1.9rem 0 0; padding: 0; display: grid; gap: 1.5rem; }
+.btn { position: relative; display: block; color: #fff; text-decoration: none; rotate: var(--r, 0deg);
+  transition: translate .25s cubic-bezier(.3,1.4,.5,1), rotate .25s cubic-bezier(.3,1.4,.5,1); }
+.btn .fill { position: absolute; inset: 0; z-index: 0; background: 50% 50% / 100% 100% no-repeat; background-image: var(--img);
+  filter: drop-shadow(0 .35rem .7rem rgba(24,14,58,.3)); }
+.btn .btnlabel { position: relative; z-index: 1; display: block; text-align: center; padding-block: 1.05rem; font-family: var(--sans); font-weight: 800; font-size: clamp(1.35rem, 6.2vw, 1.6rem); letter-spacing: -.01em;
+  /* the pastel fills don't give white text quite enough contrast on their own; a soft dark edge keeps it legible without changing the approved colors */
+  text-shadow: 0 1px 3px rgba(30,22,54,.55), 0 0 1px rgba(30,22,54,.5); }
+.btn--portfolio { --r: -1.3deg; } .btn--portfolio .fill { --img: url("../assets/img/btn-portfolio.png"); }
+.btn--resume { --r: 1.1deg; } .btn--resume .fill { --img: url("../assets/img/btn-resume.png"); }
+.btn--linkedin { --r: -1deg; } .btn--linkedin .fill { --img: url("../assets/img/btn-linkedin.png"); }
+.btn--email { --r: 1.5deg; } .btn--email .fill { --img: url("../assets/img/btn-email.png"); }
 
-/* the portfolio card is the big one */
-.card--primary .ctitle { font-size: clamp(2.7rem, 13vw, 3.7rem); line-height: .94; }
-.card--primary .cdesc { font-size: 1.05rem; margin-top: .8rem; max-width: 17rem; }
-.card--primary .cfoot { padding-top: .6rem; }
-.card--primary .go.arrow svg { width: 4.4rem; height: auto; }
-.card--primary .go.arrow path { stroke-width: 3.2; }
-.card--wide .ctitle { font-size: clamp(2.2rem, 10vw, 2.9rem); }
-.card--wide .cfoot { padding-top: .8rem; }
+/* stars pinned to a button's corner, riding along with it — the real hand-painted star graphic (assets/img/star.png) */
+.cstar { position: absolute; z-index: 2; width: 2.3rem; height: auto; pointer-events: none;
+  transition: rotate .3s ease, scale .3s ease; }
+.cstar--a { top: -1rem; left: -.9rem; rotate: -8deg; }
+.cstar--b { top: 50%; right: -1.15rem; translate: 0 -50%; rotate: 10deg; }
+.cstar--c { top: 50%; left: -1.15rem; translate: 0 -50%; rotate: -6deg; }
+.cstar--d { top: -1rem; right: -.9rem; rotate: 12deg; }
 
-/* tape + star */
-.tape { position: absolute; z-index: 2; top: -.75rem; left: 50%; translate: -50% 0; width: 5.6rem; height: 1.55rem; rotate: -3deg; opacity: .92; pointer-events: none;
-  clip-path: polygon(0 0, 4% 22%, 0 42%, 3% 62%, 0 82%, 2% 100%, 100% 100%, 97% 80%, 100% 60%, 96% 40%, 100% 20%, 97% 0); }
-.tape--violet { background: var(--tape); }
-.tape--yellow { background: #EFE27A; width: 4.6rem; left: 22%; rotate: 5deg; }
-.cstar { position: absolute; z-index: 2; top: -1.15rem; right: -.6rem; width: 3.5rem; height: 3.5rem; rotate: 14deg; filter: url(#rough); pointer-events: none; }
+/* the two handwritten notes, tucked above a button's top-left / top-right — clear of the star beside them */
+.btnnote { position: absolute; z-index: 2; top: -1.5rem; left: 1.7rem; pointer-events: none; }
+.btnnote .script { font-size: 1.15rem; color: #fff; rotate: -4deg; }
+.btnnote--right { left: auto; right: 4.6rem; }
 
-/* the marker underline under the last word of the primary title */
-.card .mk .mark { color: var(--ink); }
-
-/* ---------- the dog, peeking over the top of a card ---------- */
-.peek { position: absolute; z-index: 0; right: 1rem; bottom: calc(100% - 7px); width: var(--dw); height: calc(var(--dw) * .736); overflow: hidden; }
-.peekin { position: absolute; inset: 0; cursor: pointer; transition: transform .35s cubic-bezier(.3,1.4,.5,1); }
+/* ---------- sign-off: the same peeking dog from the homepage hero, perched on the pink strip's top edge
+   (paws dip slightly into the strip, same technique as the hero's fold line) + thank-you ---------- */
+.footrow { position: relative; z-index: 1; margin-top: 2.6rem; display: flex; align-items: flex-end; gap: 1rem; }
+.peek { --dw: clamp(8rem, 28vw, 10.5rem); --dh: calc(var(--dw) * .98); position: relative; flex: none; width: var(--dw); height: var(--dh);
+  margin-bottom: calc(var(--dh) * -.089); pointer-events: none; }
+.peekclip { position: absolute; inset: 0; overflow: hidden; }
+.peekin { position: absolute; inset: 0; pointer-events: auto; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .peekin img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; user-select: none; -webkit-user-drag: none; }
-.peekin .ptail, .peekin .pmarks { transform-origin: 71% 101%; }
-.js:not(.page-ready) .peekin { transform: translateY(103%); }
-.js.page-ready .peekin { animation: peekup .8s cubic-bezier(.3,1.25,.5,1) 1s backwards; }
-@keyframes peekup { from { transform: translateY(103%); } }
-@keyframes pwag { from { transform: rotate(-7deg); } to { transform: rotate(9deg); } }
-@keyframes pmarks { from { opacity: .15; } to { opacity: 1; } }
-.peekin.wag .ptail { animation: pwag .36s ease-in-out infinite alternate; }
-.peekin.wag .pmarks { animation: pmarks .36s ease-in-out infinite alternate; }
-.dognote { position: absolute; z-index: 0; left: .4rem; bottom: calc(100% + .15rem); display: flex; align-items: flex-end; gap: .3rem; pointer-events: none; }
-.dognote .script { color: #fff; font-size: 1.35rem; rotate: -5deg; margin-bottom: .6rem; }
-.dognote .arrow { color: #fff; rotate: 8deg; }
-.dognote .arrow path { stroke-width: 3; }
+.dogbody { clip-path: polygon(0 0, 100% 0, 100% 30.6%, 76% 30.6%, 76% 40.8%, 74.2% 53%, 73.5% 61.2%, 73.8% 71.4%, 79% 79.6%, 90% 81.6%, 100% 80.6%, 100% 100%, 0 100%); }
+.dogtail { clip-path: polygon(76% 30.6%, 100% 30.6%, 100% 80.6%, 90% 81.6%, 79% 79.6%, 73.8% 71.4%, 73.5% 61.2%, 74.2% 53%, 76% 40.8%); transform-origin: 74% 65%; }
+@keyframes pwag { from { rotate: -4deg; } to { rotate: 5deg; } }
+.peekin.wag .dogtail { animation: pwag .36s ease-in-out infinite alternate; }
+.thanks { margin: 0 0 1.1rem; font-size: 1.4rem; color: #fff; }
 
-/* ---------- footer ---------- */
-.foot { margin-top: 2.4rem; text-align: center; }
-.foot p { margin: 0; }
-.foot .script { color: #F6E3F5; font-size: 1.25rem; }
-.foot .mono { margin-top: .5rem; font-size: .68rem; letter-spacing: .05em; opacity: .85; }
+.bottomstrip { height: 2.2rem; background: var(--pink-soft); }
 
-/* ---------- hover / press (only where hover exists) ---------- */
+/* ---------- hover / focus / press (only where hover exists) ---------- */
 @media (hover: hover) {
-  .card:hover, .card:focus-visible { rotate: 0deg; translate: 0 -5px; box-shadow: var(--shadow-up); }
-  .card:hover .ctitle, .card:focus-visible .ctitle { background-size: 100% 2px; }
-  .card:hover .go, .card:focus-visible .go { translate: .18em -.18em; }
-  .card:hover .go.arrow, .card:focus-visible .go.arrow { translate: .45rem 0; }
-  .card--primary:hover .ctitle, .card--primary:focus-visible .ctitle { background-size: 0% 2px; }
-  .card:hover .mark path, .card:focus-visible .mark path { animation: redraw .8s ease-out; }
-  .card:hover .cstar, .card:focus-visible .cstar { animation: bob .7s ease-out; }
-  .slot:hover .peekin { transform: translateY(-3px); }
-  .slot:hover .peekin .ptail { animation: pwag .36s ease-in-out infinite alternate; }
-  .slot:hover .peekin .pmarks { animation: pmarks .36s ease-in-out infinite alternate; }
+  .btn:hover, .btn:focus-visible { translate: 0 -4px; rotate: 0deg; }
+  .btn:hover .cstar, .btn:focus-visible .cstar { rotate: 20deg; scale: 1.15; }
 }
-.card:active { translate: 0 1px; rotate: 0deg; scale: .985; box-shadow: var(--shadow); }
-@keyframes redraw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-@keyframes bob { 30% { translate: 0 -7px; scale: 1.1; rotate: 22deg; } 60% { translate: 0 1px; scale: .96; } }
+.btn:active { translate: 0 1px; rotate: 0deg; }
 
 /* ---------- responsive ---------- */
-@media (max-width: 359px) {
-  .page { padding-inline: 1rem; }
-  .cards { grid-template-columns: minmax(0, 1fr); }
-  .slot { grid-column: 1 / -1; }
-  .card--half .cdesc { max-width: 15rem; }
-  .startnote { margin-right: 0; }
-}
-@media (min-width: 480px) {
-  /* room for one line: Project Coordinator • Product Innovation Student • Creative at Heart */
-  .descr li { display: inline; }
-  .descr li:not(:last-child)::after { content: "•"; margin-inline: .7em; opacity: .75; }
-}
-@media (min-width: 720px) {
-  .page { padding-block: 3.2rem 4.5rem; }
-  .stack { max-width: 36rem; }
-  .sub { font-size: 1.2rem; max-width: 26rem; }
-  .descr { font-size: .76rem; }
-  .cards { gap: 1.4rem 1.2rem; }
-  .slot.has-dog { --dw: 13.5rem; }
-  .scrap { right: auto; left: calc(50% + 21rem); bottom: 9rem; width: 22rem; height: 15rem; }
-  .card--half .ctitle { font-size: 2.4rem; }
+@media (min-width: 640px) {
+  .links-page { --stack-max: 28rem; }
+  .stack { padding-top: 3rem; }
 }
 
-/* ---------- reduced motion: no movement, everything just there ---------- */
+/* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
-  .js .enter { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .squig { clip-path: none !important; transition: none !important; }
-  .card, .ctitle, .go { transition: none !important; }
-  .card:hover, .card:focus-visible, .card:active { translate: none; scale: none; }
-  .card .mark path, .card .cstar { animation: none !important; }
-  .js:not(.page-ready) .peekin, .js.page-ready .peekin { transform: none !important; animation: none !important; transition: none !important; }
-  .peekin .ptail, .peekin .pmarks { animation: none !important; }
+  .btn { transition: none; }
+  .btn:hover, .btn:focus-visible, .btn:active { translate: none; rotate: var(--r, 0deg); }
+  .cstar { transition: none; }
+  .btn:hover .cstar, .btn:focus-visible .cstar { rotate: 0deg; scale: 1; }
+  .peekin.wag .dogtail { animation: none !important; }
 }
