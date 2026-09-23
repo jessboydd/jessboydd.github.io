@@ -18,23 +18,24 @@ css/
   experience.css           5. Experience (notebook + education sticky note)
   skills.css               6. Skills
   connect.css              7. Connect + footer
-  links.css                the links page
+  links.css                the links page (Polaroid + camera + tape, the four buttons, the dog)
 js/
   data/
-    links.js               every link on the links page: title, URL, look, order, visibility  <- edit here
     images.js              image file paths
     signature-path.js      pen path for the signature animation (generated, don't edit)
     pencil.js              pencil size/tip data (don't edit)
   core.js                  shared helpers (scroll + page-ready hooks)
   effects.js               notes, arrows, reveal on scroll
   header.js  hero.js  about.js  connect.js
-  links-render.js  links.js   build the link cards from data/links.js; the dog's wag
+  links.js                 the links page: the dog's wag, kicks off the reveal/handwriting
   opening.js               opening sequence
   init.js                  runs last
-assets/img/                signature, dog layers, pencil, photos, favicon (dog-peek-*.png are used by the links page; the hero dog is dog-peek.png)
+assets/img/                signature, dog layers, pencil, photos, favicon (dog-peek-*.png are used by the homepage hero; camera-vintage.png is the links page's camera doodle)
 assets/img/projects/       the four project images (Kajabi screen, 3 social posts, LDR guide, LEGO phone)
-assets/Jess-Boyd-Resume.pdf   the file behind "Download Resume"
+assets/Jess-Boyd-Resume.pdf   the file behind "Download Resume" (used by both the homepage and the links page)
 ```
+
+The four links on `links/index.html` are plain `<a>` tags written directly into that file (same as the homepage's Connect section) — there's no separate data file for them, so edit the `href` and the label right there in the `<a class="btn ...">` block.
 
 Each section in `index.html` has a banner comment naming its CSS and JS files, and each CSS/JS file starts with a note saying what it controls. Responsive rules (`@media`) live at the bottom of the same file as the section they change, so you can edit one section without touching the others.
 
@@ -54,7 +55,8 @@ Each section in `index.html` has a banner comment naming its CSS and JS files, a
 | Projects: image files | replace the files in `assets/img/projects/` (keep the names) |
 | Projects: where things sit on desktop | `css/projects.css` (the `@media (min-width: 1000px)` block) |
 | Skills | `index.html` → SKILLS block |
-| Links page: URLs, titles, order, hide a card | `js/data/links.js` (the header text is in `links/index.html`) |
+| Links page: a button's URL or label | `links/index.html` → the `<a class="btn ...">` block |
+| Links page: photo, colors, layout | `links/index.html` (Polaroid/camera markup) and `css/links.css` |
 | Email, LinkedIn | `index.html` → CONNECT block |
 | Adding a new section | add a block to `index.html`, a new `css/…css` file (add a `<link>`), and optionally a `js/…js` file (add a `<script>` before `opening.js`) |
 
